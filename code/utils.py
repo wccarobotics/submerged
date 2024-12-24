@@ -1,4 +1,4 @@
-TIRE_DIAMETER = 56  # mm
+TIRE_DIAMETER = 88  # mm - Large spike tires - 88 mm, small spike tires - 56 mm
 AXLE_TRACK = 103  # distance between the wheels, mm
 
 # Drivebase parameters. None of these should ever be changed by users
@@ -24,7 +24,9 @@ DB_MAX_ACCEL_MMSEC2 = 800
 DB_MAX_TURN_RATE_DEGSEC = 180
 DB_MAX_TURN_ACCEL_DEGSEC2 = 360
 
-AXLE_TRACK = 103  # distance between the wheels, mm
+AXLE_TRACK = (
+    16 * 8
+)  # distance between the wheels, mm - 16 studs * 8 mm each stud
 
 # The drivebase can accept speeds down to zero, but is not very efficient and
 # quite erratic. Realistically, 30 is a good minimum speed
