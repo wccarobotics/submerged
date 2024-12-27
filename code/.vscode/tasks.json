@@ -9,7 +9,7 @@
                 "run",
                 "ble",
                 "--name",
-                "RobotName",
+                "Hub A",
                 "${file}"
             ],
             "problemMatcher": {

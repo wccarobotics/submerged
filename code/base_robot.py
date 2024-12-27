@@ -41,12 +41,25 @@ class BaseRobot:
     """
 
     def __init__(self):
-        self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.X)
+        hub_name = PrimeHub().system.name()
+        # print("Hub name: " + hub_name)
         print(version)
+        if hub_name == "Hub C":
+            self.init_droid_bot_e()
+        elif hub_name == "Hub A":
+            self.init_projekt_alpha()
+        else:
+            raise RuntimeError("Unknown hub: " + hub_name)
+
         v = self.hub.battery.voltage()
         vPct = RescaleBatteryVoltage(v)
         print(str(v))
         print(f"Battery voltage %: {vPct / 100 :.2%}")
+
+    def init_droid_bot_e(self):
+        # print("Initializing DroidBot E")
+        self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.X)
+
         self._version = "1.0 09/11/2024"
         self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.D)
@@ -119,6 +132,29 @@ class BaseRobot:
         #     Color.SENSOR_NONE: Color.NONE,
         #     Color.SENSOR_LIME: Color.CYAN,
         # }
+
+    def init_projekt_alpha(self):
+        self.hub = PrimeHub(top_side=Axis.Z, front_side=Axis.Y)
+        self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
+        self.rightDriveMotor = Motor(Port.F)
+        self.robot = DriveBase(
+            self.leftDriveMotor,
+            self.rightDriveMotor,
+            TIRE_DIAMETER,
+            AXLE_TRACK,
+        )
+        # default speeds were determined by testing
+        self.robot.settings(
+            RescaleStraightSpeed(DEFAULT_BIG_MOT_SPEED_PCT),
+            RescaleStraightAccel(DEFAULT_BIG_MOT_ACCEL_PCT),
+            RescaleTurnSpeed(DEFAULT_TURN_SPEED_PCT),
+            RescaleTurnAccel(DEFAULT_TURN_ACCEL_PCT),
+        )
+
+        self.leftAttachmentMotor = Motor(Port.A)
+        self.rightAttachmentMotor = Motor(Port.E)
+        self.leftAttachmentMotor.control.limits(acceleration=20000)
+        self.leftAttachmentMotor.control.limits(acceleration=20000)
 
     def moveLeftAttachmentMotorForDegrees(
         self,

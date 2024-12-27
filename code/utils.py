@@ -1,11 +1,13 @@
-TIRE_DIAMETER = 88  # mm - Large spike tires - 88 mm, small spike tires - 56 mm
+TIRE_DIAMETER = 88  # mm - Large spike tires - 88 mm, small spike tires - 56 mm, projekt alpha tires 62.4 mm
 AXLE_TRACK = 103  # distance between the wheels, mm
 
 # Drivebase parameters. None of these should ever be changed by users
 if TIRE_DIAMETER == 56:
     DB_MAX_SPEED_MMSEC = 488
-if TIRE_DIAMETER == 88:
+elif TIRE_DIAMETER == 88:
     DB_MAX_SPEED_MMSEC = 768
+else:
+    raise RuntimeError("Unknown tire")
 
 # Straight Acceleration constants
 # Anything above 800 mm/sec^2 causes wheel slippage, regardless of the
