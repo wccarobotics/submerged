@@ -1,5 +1,4 @@
 TIRE_DIAMETER = 88  # mm - Large spike tires - 88 mm, small spike tires - 56 mm, projekt alpha tires 62.4 mm
-AXLE_TRACK = 103  # distance between the wheels, mm
 
 # Drivebase parameters. None of these should ever be changed by users
 if TIRE_DIAMETER == 56:
@@ -46,18 +45,18 @@ DB_MIN_TURN_ACCEL_DEGSEC2 = 10
 DB_ABS_MAX_TORQUE_MNM = 700  # milli-newton-meters
 DB_ABS_MIN_TORQUE_MNM = 20  # milli-newton-meters
 
-# Large Motor usable parameters
-LG_MOT_MAX_VOLTAGE = 9000  # mV
-LG_MOT_MIN_VOLTAGE = 3000  # mV
-LG_MOT_MAX_TORQUE = 560
+# # Large Motor usable parameters
+# LG_MOT_MAX_VOLTAGE = 9000  # mV
+# LG_MOT_MIN_VOLTAGE = 3000  # mV
+# LG_MOT_MAX_TORQUE = 560
 
 # Medium Motor usable parameters
-MED_MOT_MAX_SPEED_DEGSEC = 1000
+ATTACHMENT_MOT_MAX_SPEED_DEGSEC = 1000
 # MED_MOT_MAX_ACCEL_DEGSEC2 = 20000
 # MED_MOT_MIN_ACCEL_DEGSEC2 = 50
-MED_MOT_MIN_SPEED_DEGSEC = 100
-MED_MOT_MAX_TORQUE = 195  # milli-newton-meters
-MED_MOT_MIN_TORQUE = 50  # milli-newton-meters
+ATTACHMENT_MOT_MIN_SPEED_DEGSEC = 100
+ATTACHMENT_MOT_MAX_TORQUE = 250  # milli-newton-meters
+ATTACHMENT_MOT_MIN_TORQUE = 50  # milli-newton-meters
 
 
 def Rescale(val, in_min, in_max, out_min, out_max):
@@ -120,23 +119,23 @@ def RescaleTurnAccel(turnAccelPct):
     )
 
 
-def RescaleMedMotSpeed(medMotSpeedPct):
+def RescaleAttachmentMotSpeed(medMotSpeedPct):
     return Rescale(
         medMotSpeedPct,
         1,
         100,
-        MED_MOT_MIN_SPEED_DEGSEC,
-        MED_MOT_MAX_SPEED_DEGSEC,
+        ATTACHMENT_MOT_MIN_SPEED_DEGSEC,
+        ATTACHMENT_MOT_MAX_SPEED_DEGSEC,
     )
 
 
-def RescaleMedMotTorque(medMotTorquePct):
+def RescaleAttachmentMotTorque(medMotTorquePct):
     return Rescale(
         medMotTorquePct,
         1,
         100,
-        MED_MOT_MIN_TORQUE,
-        MED_MOT_MAX_TORQUE,
+        ATTACHMENT_MOT_MIN_TORQUE,
+        ATTACHMENT_MOT_MAX_TORQUE,
     )
 
 
@@ -154,24 +153,24 @@ def RescaleConvertFarToCel(DegF):
     return Rescale(DegF, 0, 212, -17.77, 100)
 
 
-def RescaleMedMotDutyLimit(medMotDutyLimitPct):
-    return Rescale(
-        medMotDutyLimitPct,
-        1,
-        100,
-        5,
-        195,
-    )
+# def RescaleMedMotDutyLimit(medMotDutyLimitPct):
+#     return Rescale(
+#         medMotDutyLimitPct,
+#         1,
+#         100,
+#         5,
+#         195,
+#     )
 
 
-def RescaleSensitivity(sens):
-    return Rescale(
-        sens,
-        1,
-        100,
-        1,
-        12,
-    )
+# def RescaleSensitivity(sens):
+#     return Rescale(
+#         sens,
+#         1,
+#         100,
+#         1,
+#         12,
+#     )
 
 
 def RescaleBatteryVoltage(volts):

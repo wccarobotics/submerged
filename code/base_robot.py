@@ -17,10 +17,10 @@ from pybricks import version
 from utils import *
 
 # All default constant percentages will be defined here
-DEFAULT_MED_MOT_SPEED_PCT = 100  # normal attachment moter speed, % value
-DEFAULT_MED_MOT_ACCEL_PCT = 80
-DEFAULT_BIG_MOT_SPEED_PCT = 80  # normal wheels moter speed, % value
-DEFAULT_BIG_MOT_ACCEL_PCT = 80
+DEFAULT_ATTACHMENT_SPEED_PCT = 100  # normal attachment moter speed, % value
+# DEFAULT_ATTACHMENT_ACCEL_PCT = 80 # not used
+DEFAULT_DRIVE_SPEED_PCT = 80  # normal wheels moter speed, % value
+DEFAULT_DRIVE_ACCEL_PCT = 80
 DEFAULT_TURN_SPEED_PCT = 45  #
 DEFAULT_TURN_ACCEL_PCT = 45  #
 DEFAULT_STALL_PCT = 50
@@ -71,8 +71,8 @@ class BaseRobot:
         )
         # default speeds were determined by testing
         self.robot.settings(
-            RescaleStraightSpeed(DEFAULT_BIG_MOT_SPEED_PCT),
-            RescaleStraightAccel(DEFAULT_BIG_MOT_ACCEL_PCT),
+            RescaleStraightSpeed(DEFAULT_DRIVE_SPEED_PCT),
+            RescaleStraightAccel(DEFAULT_DRIVE_ACCEL_PCT),
             RescaleTurnSpeed(DEFAULT_TURN_SPEED_PCT),
             RescaleTurnAccel(DEFAULT_TURN_ACCEL_PCT),
         )
@@ -145,8 +145,8 @@ class BaseRobot:
         )
         # default speeds were determined by testing
         self.robot.settings(
-            RescaleStraightSpeed(DEFAULT_BIG_MOT_SPEED_PCT),
-            RescaleStraightAccel(DEFAULT_BIG_MOT_ACCEL_PCT),
+            RescaleStraightSpeed(DEFAULT_DRIVE_SPEED_PCT),
+            RescaleStraightAccel(DEFAULT_DRIVE_ACCEL_PCT),
             RescaleTurnSpeed(DEFAULT_TURN_SPEED_PCT),
             RescaleTurnAccel(DEFAULT_TURN_ACCEL_PCT),
         )
@@ -159,7 +159,7 @@ class BaseRobot:
     def moveLeftAttachmentMotorForDegrees(
         self,
         degrees,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        speedPct=DEFAULT_ATTACHMENT_SPEED_PCT,
         then=Stop.HOLD,
         wait=True,
     ):
@@ -184,13 +184,13 @@ class BaseRobot:
         or run both lines of code at the same time
          """
         # now the real work begins!
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleAttachmentMotSpeed(speedPct)
         self.leftAttachmentMotor.run_angle(speed, degrees, then, wait)
 
     def moveLeftAttachmentMotorForMillis(
         self,
         millis,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        speedPct=DEFAULT_ATTACHMENT_SPEED_PCT,
         then=Stop.HOLD,
         wait=True,
     ):
@@ -223,11 +223,11 @@ class BaseRobot:
         complete.
 
         """
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleAttachmentMotSpeed(speedPct)
         self.leftAttachmentMotor.run_time(speed, millis, then, wait)
 
     def moveLeftAttachmentMotorUntilStalled(
-        self, speedPct=DEFAULT_MED_MOT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
+        self, speedPct=DEFAULT_ATTACHMENT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
     ):
         """
         moveLeftAttachmentMotorUntillStalled moves \
@@ -241,8 +241,8 @@ class BaseRobot:
         negative numbers turn it to the left \
         """
 
-        speed = RescaleMedMotSpeed(speedPct)
-        load = RescaleMedMotTorque(stallPct)
+        speed = RescaleAttachmentMotSpeed(speedPct)
+        load = RescaleAttachmentMotTorque(stallPct)
         self.leftAttachmentMotor.run(speed)
         while abs(self.leftAttachmentMotor.load()) < load:
             wait(25)
@@ -251,7 +251,7 @@ class BaseRobot:
     def moveRightAttachmentMotorForDegrees(
         self,
         degrees,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        speedPct=DEFAULT_ATTACHMENT_SPEED_PCT,
         then=Stop.HOLD,
         wait=True,
     ):
@@ -276,13 +276,13 @@ class BaseRobot:
         or run both lines of code at the same time
          """
         # now the real work begins!
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleAttachmentMotSpeed(speedPct)
         self.rightAttachmentMotor.run_angle(speed, degrees, then, wait)
 
     def moveRightAttachmentMotorForMillis(
         self,
         millis,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        speedPct=DEFAULT_ATTACHMENT_SPEED_PCT,
         then=Stop.HOLD,
         wait=True,
     ):
@@ -315,11 +315,11 @@ class BaseRobot:
         complete.
 
         """
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleAttachmentMotSpeed(speedPct)
         self.rightAttachmentMotor.run_time(speed, millis, then, wait)
 
     def moveRightAttachmentMotorUntilStalled(
-        self, speedPct=DEFAULT_MED_MOT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
+        self, speedPct=DEFAULT_ATTACHMENT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
     ):
         """
         Moves the right attachment motor untill it is stalled
@@ -339,8 +339,8 @@ class BaseRobot:
         stalling. Lower numbers means stalls with less torque.
 
         """
-        speed = RescaleMedMotSpeed(speedPct)
-        load = RescaleMedMotTorque(stallPct)
+        speed = RescaleAttachmentMotSpeed(speedPct)
+        load = RescaleAttachmentMotTorque(stallPct)
         self.rightAttachmentMotor.run(speed)
         while abs(self.rightAttachmentMotor.load()) < load:
             wait(25)
@@ -349,11 +349,11 @@ class BaseRobot:
     def driveForDistance(
         self,
         distance,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        speedPct=DEFAULT_DRIVE_SPEED_PCT,
         then=Stop.BRAKE,
         wait=True,
         gyro=True,
-        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        accelerationPct=DEFAULT_DRIVE_ACCEL_PCT,
     ):
         """
         driveForDistance moves \
@@ -398,15 +398,15 @@ class BaseRobot:
         )  # TODO: Ensure speed is positive
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
-        self.robot.settings(acceleration, speed)
+        self.robot.settings(speed, acceleration)
         self.robot.straight(distance, then, wait)
 
     def driveForMillis(
         self,
         millis,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        speedPct=DEFAULT_DRIVE_SPEED_PCT,
         gyro=True,
-        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        accelerationPct=DEFAULT_DRIVE_ACCEL_PCT,
     ):
         """
         driveForMillis moves \
@@ -457,9 +457,9 @@ class BaseRobot:
         self,
         # stallPct=DEFAULT_STALL_PCT,
         # think about above line later
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        speedPct=DEFAULT_DRIVE_SPEED_PCT,
         gyro=True,
-        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        accelerationPct=DEFAULT_DRIVE_ACCEL_PCT,
     ):
         spd = RescaleStraightSpeed(speedPct)
         # print(spd)
@@ -509,7 +509,7 @@ class BaseRobot:
         speed = RescaleTurnSpeed(speedPct)  # TODO: Ensure speed is positive
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
-        self.robot.settings(acceleration, speed)
+        self.robot.settings(speed, acceleration)
         self.robot.turn(angle, then, wait)
 
     # TODO curve() needs comments
@@ -517,7 +517,7 @@ class BaseRobot:
         self,
         radius,
         angle,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        speedPct=DEFAULT_DRIVE_SPEED_PCT,
         then=Stop.BRAKE,
         wait=True,
         gyro=True,
@@ -540,7 +540,7 @@ class BaseRobot:
         POS = right; NEG = left
 
         speedPct (pos integer, optional): How fast to drive. Defaults to \
-        DEFAULT_BIG_MOT_SPEED_PCT.
+        DEFAULT_DRIVE_SPEED_PCT.
 
         then (Stop(), optional): What kind of Stop. Defaults to Stop.BRAKE.
 
@@ -564,7 +564,7 @@ class BaseRobot:
         )  # FIXME: Wrong rescale
         self.robot.use_gyro(gyro)
         self.robot.settings(
-            acceleration, speed
+            speed, acceleration
         )  # FIXME: Need to set turn_rate & turn_acceleration only
         self.robot.curve(radius, angle, then, wait)
 
@@ -572,8 +572,8 @@ class BaseRobot:
         self,
         radius,
         dist,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        accelPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        speedPct=DEFAULT_DRIVE_SPEED_PCT,
+        accelPct=DEFAULT_DRIVE_ACCEL_PCT,
         gyro=True,
         then=Stop.BRAKE,
         wait=True,
@@ -595,7 +595,7 @@ class BaseRobot:
         POS = forward; NEG = reverse
 
         speedPct (OPTIONAL, pos integer): How fast to drive. Defaults to \
-        DEFAULT_BIG_MOT_SPEED_PCT.
+        DEFAULT_DRIVE_SPEED_PCT.
 
         then (OPTIONAL, Stop()): What kind of Stop. Defaults to Stop.BRAKE. \
         Stop.NONE works great when chaining multiple movements together.
