@@ -44,12 +44,14 @@ class BaseRobot:
         hub_name = PrimeHub().system.name()
         # print("Hub name: " + hub_name)
         print(version)
-        if hub_name == "Hub C":
-            self.init_droid_bot_e()
-        elif hub_name == "Hub A":
-            self.init_projekt_alpha()
-        else:
-            raise RuntimeError("Unknown hub: " + hub_name)
+        # if hub_name == "Hub C":
+        #     self.init_droid_bot_e()
+        # elif hub_name == "Hub A":
+        #     self.init_projekt_alpha()
+        # else:
+        #     raise RuntimeError("Unknown hub: " + hub_name)
+
+        self.init_droid_bot_e()
 
         v = self.hub.battery.voltage()
         vPct = RescaleBatteryVoltage(v)
