@@ -4,14 +4,8 @@
         {
             "label": "Run on robot",
             "type": "shell",
-            "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
-            "args": [
-                "run",
-                "ble",
-                "--name",
-                "Hub D",
-                "${file}"
-            ],
+            "command": "python",
+            "args": ["${workspaceFolder}/.vscode/runonrobot.py", "${file}"],
             "problemMatcher": {
                 "owner": "python",
                 "fileLocation": [
