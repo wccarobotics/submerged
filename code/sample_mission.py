@@ -1,46 +1,27 @@
 from base_robot import *
 
 # Copy this text into a new mission file. Name it something like
-# myname.py. You can name it pretty much anything, but don't use
-# any spaces or punctuation, other than _ and -. The name MUST
-# end with .py (unlike this file, which ends with .txt)
+# r02_unexpected_encounter.  Don't use any spaces or punctuation,
+# other than _. The name MUST end with .py
 #
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
 # such as how it should be loaded with anything, arm positions, etc.
-# Please delete all of these comments, and consider writing your
-# own here.
+#
+# These existing comments can be deleted
 
 
-# When we run this program from the master program, we will call this
-# "Run(br)" method.
 def Run(br: BaseRobot):
-    wait(250)
-    #   Your mission code goes here, step-by-step
+
+    # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    # br.driveForMillis(2000, 50)
-    # br.driveForDistance(-1000)
-
-    br.driveForDistance(distance=1000)  #    Drive distance
-    # br.turnInPlace(angle=180)
-    br.driveForDistance(distance=-1000)  #    Drive distance
-    # br.turnInPlace(angle=180)
-    # br.moveLeftAttachmentMotorForDegrees(degrees=-720)
-    # br.waitForForwardButton()
-    # # br.driveUntilStalled(speedPct=80, stallPct=5)
-    # # br.driveUntilStalled(speedPct=80)
-    # br.moveRightAttachmentMotorForMillis(millis=1500)
-    # br.waitForMillis(millis=1000)
-    # # br.moveLeftAttachmentMotorUntilStalled(stallPct=100)
-    # br.curve(radius=350, angle=70)
+    br.driveForDistance(distance=1000)  # Go forward
+    br.driveForDistance(distance=-1000)  # Go back
 
 
-# If running this program directly (not from the master program), this is
-# how we know it is running directly. In which case, this method will
-# create a BaseRobot and run the Run(br) method above.
-# In other words, keep these three lines at the bottom of your code and
-# everything will be fine.
+# Don't modify the code below
+# It runs the Run method if this file is run directly (not from the master program)
 if __name__ == "__main__":
     br = BaseRobot()
     Run(br)

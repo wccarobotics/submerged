@@ -27,6 +27,10 @@ DEFAULT_STALL_PCT = 50
 # DEFAULT_STALL_PCT = 50  # not currently used
 
 
+def mm(inches):  # Convert inches to millimeters
+    return 25.4 * inches
+
+
 class BaseRobot:
     """
     A collection of methods and Spike Prime for FLL Team 24277. \
