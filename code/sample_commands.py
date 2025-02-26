@@ -13,6 +13,8 @@ def Run(br: BaseRobot):
     # swinging and you want to give them time to stop
     br.waitForMillis(250)
 
+    ## DRIVING STRAIGHT
+
     # This drives forward for 100 mm (10 cm)
     br.driveForDistance(100)
 
@@ -27,15 +29,56 @@ def Run(br: BaseRobot):
     # This will go backwards for 10 inches at 50% speed
     br.driveForDistance(mm(10), speedPct=-50)
 
+    # You can also make the robot drive for an amount of time instead of a distance
+    # This is especially useful when you want to drive into a mission model.
+    # When driving into a mission model you usually want to keep driving as if
+    # you were going to drive past it.  If you use a distance and the wheels
+    # don't slip, then the robot may get stuck as it will never reach that distance.
+    # This will drive forward for half a second
     br.driveForMillis(500)
 
-    # br.driveForMillis(2000, 50)
-    # br.driveForDistance(-1000)
+    # This will drive forward for a quarter second at 25% speed
+    br.driveForMillis(250, speedPct=25)
 
-    br.driveForDistance(distance=1000)  #    Drive distance
-    # br.turnInPlace(angle=180)
-    br.driveForDistance(distance=-1000)  #    Drive distance
-    # br.turnInPlace(angle=180)
+    # Use a negative speed if you want to go backwards
+    # This will drive backwards at 50% speed for 1 second
+    br.driveForMillis(1000, speedPct=-50)
+
+    ## TURNING IN PLACE
+
+    # Here is how you can turn in place.  This will rotate 90 degrees to the right (clockwise):
+    br.turnInPlace(90)
+
+    # This will rotate 45 degrees to the left (counterclockwise)
+    br.turnInPlace(-45)
+
+    ## Driving in a curve
+
+    # There are two functions you can use to drive along a curve
+    # Both of them let you specify the radius of the curve to drive along
+    # With driveArcDist, you specify the distance along the curve that the robot
+    # should drive.
+    # With the curve function, you specify the angle or number of degrees that
+    # the robot should drive.  A value of 360 would make the robot drive in a
+    # complete circle, while 90 would travel 1/4 of the circle, resulting in a
+    # 90 degree turn
+
+    # This will drive along a curve curving to the right with a radius of 15 inches.
+    # It will drive for 10 inches along the curve
+    br.driveArcDist(mm(15), mm(10))
+
+    # To curve to the left, use a negative value for the radius
+    # You can also specify the speed to drive
+    # This will curve to the left with a radius of 25 inches, driving for 5 inches,
+    # with a speed of 50%
+    br.driveArcDist(mm(-25), mm(5), speedPct=50)
+
+    # To curve for a specified number of degrees, use the curve function.
+    # This will curve to the right with a radius of 15 inches.  It will drive
+    # until it has turned 45 degrees, and will drive at a speed of 50%
+    br.curve(mm(15), 45, speedPct=50)
+
+    # Other sample commands:
     # br.moveLeftAttachmentMotorForDegrees(degrees=-720)
     # br.waitForForwardButton()
     # # br.driveUntilStalled(speedPct=80, stallPct=5)
