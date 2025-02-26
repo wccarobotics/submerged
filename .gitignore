@@ -1,3 +1,6 @@
+# This file controls which hub the code should be run on.  These changes don't need to be committed
+code/hub.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
