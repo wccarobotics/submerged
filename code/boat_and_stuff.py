@@ -12,24 +12,16 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    br.driveArcDist(mm(40), mm(29))
-    br.waitForMillis(80)
-    br.turnInPlace(-134)
-    br.waitForMillis(70)
-    br.driveForDistance(mm(4), speedPct=50)
-    br.waitForMillis(40)
-    br.driveForDistance(mm(-4), speedPct=-50)
     br.waitForMillis(60)
-    br.turnInPlace(43)
-    # br.waitForMilli(60)
-    br.driveForDistance(mm(9), speedPct=80)
-    br.waitForMillis(40)
-    br.driveForDistance(mm(-9), speedPct=-80)
+    br.driveForDistance(mm(9.3), speedPct=70)
     br.waitForMillis(60)
-    br.turnInPlace(75)
-    br.driveForMillis(60)
-    br.driveForDistance(mm(-23), speedPct=-80)
-    br.waitForMillis(60)
+    br.turnInPlace(93.5)
+    br.driveForDistance(mm(18), speedPct=79)
+    br.waitForMillis(50)
+    br.moveLeftAttachmentMotorForDegrees(mm(2), speedPct=-20)
+    br.waitForMillis(50)
+    # br.driveArcDist(mm(-56), mm(20), speedPct=23)
+    br.driveForDistance(mm(20), speedPct=20)
 
 # It runs the Run method if this file is run directly (not from the master program)
 if __name__ == "__main__":
