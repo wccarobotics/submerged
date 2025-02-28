@@ -12,16 +12,18 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    br.driveArcDist(mm(40), mm(29))
+    # br.moveRightAttachmentMotorForDegrees(mm(-4), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
+    br.driveArcDist(mm(40), mm(31))
     br.waitForMillis(80)
-    br.turnInPlace(-134)
+    br.turnInPlace(-132)
     br.waitForMillis(70)
     br.driveForDistance(mm(4), speedPct=50)
     br.waitForMillis(40)
+    br.moveRightAttachmentMotorForDegrees(mm(-4), speedPct=-20)
     br.driveForDistance(mm(-4), speedPct=-50)
     br.waitForMillis(60)
     br.turnInPlace(43)
-    # br.waitForMilli(60)
+    br.waitForMillis(60)
     br.driveForDistance(mm(9), speedPct=80)
     br.waitForMillis(40)
     br.driveForDistance(mm(-9), speedPct=-80)
