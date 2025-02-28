@@ -15,12 +15,16 @@ def Run(br: BaseRobot):
     # The Robot must be lined up along the South Wall using the Square Aligner.
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
+    # The Robot must be aligned along the South Wall and againt the Square and Rectagle Aligners.
 
-    br.curve(mm(15), -45, speedPct=50)
-
-    br.driveForDistance(mm(12), speedPct=-50)
-    br.driveForDistance(mm(-18), speedPct=-50)
-
+    br.curve(mm(5), -40, speedPct=25)
+    br.driveForDistance(mm(24.5))
+    br.turnInPlace(17.5)
+    br.driveForDistance(mm(-4.5))
+    br.turnInPlace(-25)
+    br.driveForDistance(mm(-10))
+    br.turnInPlace(-20)
+    br.driveForDistance(mm(-30))
 
 
     

@@ -16,11 +16,15 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    br.curve(mm(15), -45, speedPct=50)
+    br.curve(mm(10), -65, speedPct=50)
 
+    br.driveForDistance(mm(14), speedPct=-50)
+    # br.driveForDistance(mm(-18), speedPct=-50)
+
+    br.turnInPlace(25)
     br.driveForDistance(mm(12), speedPct=-50)
-    br.driveForDistance(mm(-18), speedPct=-50)
 
+    br.curve(mm(12), -65, speedPct=50)
 
 
     
