@@ -18,7 +18,7 @@ def Run(br: BaseRobot):
 
     br.curve(mm(15), -45, speedPct=50)
 
-    br.driveForDistance(mm(12), speedPct=-50)
+    br.driveForMillis(1500, speedPct=50)
     br.driveForDistance(mm(-18), speedPct=-50)
 
 

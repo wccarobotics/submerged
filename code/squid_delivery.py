@@ -19,9 +19,9 @@ def Run(br: BaseRobot):
 
     br.curve(mm(5), -40, speedPct=25)
     br.driveForDistance(mm(24.5))
-    br.turnInPlace(17.5)
+    br.turnInPlace(15)
     br.driveForDistance(mm(-4.5))
-    br.turnInPlace(-25)
+    br.turnInPlace(-20)
     br.driveForDistance(mm(-10))
     br.turnInPlace(-20)
     br.driveForDistance(mm(-30))
