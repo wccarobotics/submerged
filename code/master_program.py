@@ -19,12 +19,26 @@ runs = {
     2: sample_mission.Run,
     3: sample_mission.Run,
 }
-
+br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
+br.hub.light.on(Color.BLUE)
+run = 0
 while True:
-    keys = runs.keys()
-    selection = hub_menu(*keys)
-
-    runs[selection](br)
+    pressed = br.hub.buttons.pressed()
+    if Button.RIGHT in pressed:
+        run += 1
+    if Button.LEFT in pressed:
+        run -= 1
+    if run < 0:
+        run = 3
+    if run > 3:
+        run = 0
+    if Button.CENTER in pressed:
+        br.hub.light.on(Color.GREEN)
+        runs[run](br)
+        run +=1
+    br.hub.light.on(Color.BLUE)
+    br.hub.display.number(run)
+    wait(150)
 
     # while True:
     #     col = br.colorSensor.color()
