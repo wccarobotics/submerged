@@ -16,6 +16,10 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(13.7), 50)
     br.curve(mm(5), -45, 40)
     br.moveRightAttachmentMotorForDegrees(400, 40)
+    br.driveForDistance(mm(10), 50)
+    br.curve(mm(3), -45, 40)
+    br.driveForDistance(mm(4), 50)
+    br.curve(mm(2), 80, 40)
 
 
 # Don't modify the code below
