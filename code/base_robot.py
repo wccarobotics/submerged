@@ -28,6 +28,12 @@ DEFAULT_STALL_PCT = 50
 
 
 def mm(inches):  # Convert inches to millimeters
+    """
+    Turns inches into milimeters because we are too American to learn the metric system.
+
+    Example:
+    >>> br.driveForDistance(mm(12)) #drives forward a foot.
+    """
     return 25.4 * inches
 
 
