@@ -12,26 +12,31 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    # br.moveRightAttachmentMotorForDegrees(mm(-4), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
-    br.driveArcDist(mm(40), mm(31))
-    br.waitForMillis(80)
-    br.turnInPlace(-132)
-    br.waitForMillis(70)
-    br.driveForDistance(mm(4), speedPct=50)
-    br.waitForMillis(40)
-    br.moveRightAttachmentMotorForDegrees(mm(-4), speedPct=-20)
-    br.driveForDistance(mm(-4), speedPct=-50)
-    br.waitForMillis(60)
-    br.turnInPlace(43)
-    br.waitForMillis(60)
-    br.driveForDistance(mm(9), speedPct=80)
-    br.waitForMillis(40)
-    br.driveForDistance(mm(-9), speedPct=-80)
-    br.waitForMillis(60)
-    br.turnInPlace(75)
-    br.driveForMillis(60)
-    br.driveForDistance(mm(-23), speedPct=-80)
-    br.waitForMillis(60)
+    br.moveRightAttachmentMotorForDegrees(mm(-4), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
+    # a = -2.4
+    # b = 30
+    # pos_distance_to_yellow_thing = 2.4
+    # neg_distance_to_yellow_thing = -pos_distance_to_yellow_thing
+    # br.driveArcDist(mm(38), mm(b))
+    # br.waitForMillis(80)
+    # br.turnInPlace(-132)
+    # br.waitForMillis(70)
+    # br.moveRightAttachmentMotorForDegrees(mm(-4.3), speedPct=20)
+    # br.driveForDistance(mm(4), speedPct=50)
+    # br.waitForMillis(40)
+    # br.moveRightAttachmentMotorForDegrees(mm(a), speedPct=-20)
+    # br.driveForDistance(mm(neg_distance_to_yellow_thing), speedPct=-43)
+    # br.waitForMillis(60)
+    # br.turnInPlace(43)
+    # br.waitForMillis(43) 
+    # br.driveForDistance(mm(8), speedPct=80) 
+    # br.waitForMillis(40)
+    # br.driveForDistance(mm(-8), speedPct=-80)
+    # br.turnInPlace(41)
+    # br.driveForMillis(60)
+    # br.moveRightAttachmentMotorForDegrees(mm(a), speedPct=20)
+    # br.driveForDistance(mm(4), speedPct=-40)
+    # br.waitForMillis(60)
 
 # It runs the Run method if this file is run directly (not from the master program)
 if __name__ == "__main__":
