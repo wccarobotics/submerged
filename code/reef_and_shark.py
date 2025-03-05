@@ -12,31 +12,33 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    br.moveRightAttachmentMotorForDegrees(mm(-4), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
-    # a = -2.4
-    # b = 30
-    # pos_distance_to_yellow_thing = 2.4
-    # neg_distance_to_yellow_thing = -pos_distance_to_yellow_thing
-    # br.driveArcDist(mm(38), mm(b))
-    # br.waitForMillis(80)
-    # br.turnInPlace(-132)
-    # br.waitForMillis(70)
-    # br.moveRightAttachmentMotorForDegrees(mm(-4.3), speedPct=20)
-    # br.driveForDistance(mm(4), speedPct=50)
-    # br.waitForMillis(40)
-    # br.moveRightAttachmentMotorForDegrees(mm(a), speedPct=-20)
-    # br.driveForDistance(mm(neg_distance_to_yellow_thing), speedPct=-43)
-    # br.waitForMillis(60)
-    # br.turnInPlace(43)
-    # br.waitForMillis(43) 
-    # br.driveForDistance(mm(8), speedPct=80) 
-    # br.waitForMillis(40)
-    # br.driveForDistance(mm(-8), speedPct=-80)
-    # br.turnInPlace(41)
-    # br.driveForMillis(60)
-    # br.moveRightAttachmentMotorForDegrees(mm(a), speedPct=20)
-    # br.driveForDistance(mm(4), speedPct=-40)
-    # br.waitForMillis(60)
+    # br.moveRightAttachmentMotorForDegrees(mm(-1.3), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
+    a = -2.4
+    b = 31
+    pos_distance_to_yellow_thing = 2.5
+    neg_distance_to_yellow_thing = -pos_distance_to_yellow_thing
+    br.driveArcDist(mm(34), mm(b))
+    br.waitForMillis(80)
+    br.turnInPlace(-139.15)
+    br.moveRightAttachmentMotorForDegrees(mm(0.7), speedPct=20)
+    br.waitForMillis(70)
+    br.driveForDistance(mm(4.1), speedPct=50)
+    br.moveRightAttachmentMotorForDegrees(mm(1.37), speedPct=20)
+    br.waitForMillis(30)
+    br.moveRightAttachmentMotorForDegrees(mm(1.6), speedPct=-20)
+    br.driveForDistance(mm(neg_distance_to_yellow_thing), speedPct=-43)
+    br.waitForMillis(60)
+    br.turnInPlace(40)
+    br.waitForMillis(43)
+    br.driveForDistance(mm(8), speedPct=80)
+    br.waitForMillis(40)
+    br.driveForDistance(mm(-8), speedPct=-80)
+    br.turnInPlace(42)
+    br.driveForMillis(60)
+    br.moveRightAttachmentMotorForDegrees(mm(a - 0.36), speedPct=20)
+    br.driveForDistance(mm(4), speedPct=-40)
+    br.waitForMillis(60)
+
 
 # It runs the Run method if this file is run directly (not from the master program)
 if __name__ == "__main__":
