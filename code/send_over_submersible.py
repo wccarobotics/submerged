@@ -14,14 +14,12 @@ from base_robot import *
 def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    br.driveForDistance(mm(5.8), 50)
-    br.curve(radius=350, angle=-45,)
-    br.driveForDistance(mm(35.5), 50)
-    br.driveForDistance(mm(-4), 50)
-    br.driveForDistance(mm(2), 50)
-    br.driveForDistance(mm(-12), 50)
-    br.curve( radius=350, angle=90)
-    br.driveForDistance(mm(5), 50)
+    br.driveForDistance(mm(8), 50)
+    br.curve(350, -50)
+    br.driveForDistance(mm(30.5), 35)
+    br.driveForDistance(mm(-16), 10)
+    br.curve( mm(8), -85)
+    br.driveForDistance(mm(5), 5)
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
