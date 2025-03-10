@@ -2,7 +2,7 @@ from base_robot import *
 from pybricks.tools import hub_menu
 
 # Import missions
-import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, crabz
+import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, angler, r06_change_shipping_lanes, send_over_submersible, crabz
 
 
 br = BaseRobot()
@@ -17,9 +17,10 @@ runs = {
     2: board_cross.Run,
     3: squid.Run,
     4: squid_delivery.Run,
-    5: r06_change_shipping_lanes.Run,
-    6: send_over_submersible.Run,
-    7: crabz.Run,
+    5: angler.Run,
+    6: r06_change_shipping_lanes.Run,
+    7: send_over_submersible.Run,
+    8: crabz.Run,
 }
 br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
 br.hub.light.on(Color.BLUE)
