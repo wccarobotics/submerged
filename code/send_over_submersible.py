@@ -21,6 +21,11 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(10), 50)
     br.driveForDistance(mm(-8), 20)
     br.driveForDistance(mm(9), 100)
+    br.driveForDistance(mm(-6), 50)
+    br.curve(0, 25, 30)
+    br.driveForDistance(mm(-4),50)
+    br.curve(0, -50, 50)
+    br.curve(mm(80), 16, 50)
 
 
 # Don't modify the code below
