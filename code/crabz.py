@@ -25,4 +25,3 @@ def Run(br: BaseRobot):
 if __name__ == "__main__":
     br = BaseRobot()
     Run(br)
-l
