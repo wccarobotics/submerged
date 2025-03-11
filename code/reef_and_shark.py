@@ -12,7 +12,7 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    br.moveRightAttachmentMotorForDegrees(mm(-1.), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
+    # br.moveRightAttachmentMotorForDegrees(mm(-1.), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
     a = -2.4
     b = 31
     pos_distance_to_yellow_thing = 2.5
