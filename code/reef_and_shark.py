@@ -12,22 +12,21 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    # br.moveRightAttachmentMotorForDegrees(mm(-1.3), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
+    br.moveRightAttachmentMotorForDegrees(mm(-1.), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
     a = -2.4
-    b = 30.8
+    b = 31
     pos_distance_to_yellow_thing = 2.5
     neg_distance_to_yellow_thing = -pos_distance_to_yellow_thing
     br.driveArcDist(mm(34), mm(b))
     br.waitForMillis(80)
     br.turnInPlace(-139.45)
     br.waitForMillis(70)
-    br.moveRightAttachmentMotorForDegrees(12.6, speedPct=20)
     br.driveForDistance(mm(4.3), speedPct=50)
     br.moveRightAttachmentMotorForDegrees(80, speedPct=30)
     br.waitForMillis(30)
     br.driveForDistance(mm(neg_distance_to_yellow_thing), speedPct=-43)
     br.waitForMillis(60)
-    br.turnInPlace(40)
+    br.turnInPlace(37.5)
     br.waitForMillis(43)
     br.driveForDistance(mm(8.4), speedPct=80)
     br.waitForMillis(40)
@@ -35,9 +34,9 @@ def Run(br: BaseRobot):
     br.turnInPlace(44)
     br.driveForMillis(60)
     br.driveForDistance(mm(-8), speedPct=39)
-    br.moveRightAttachmentMotorForDegrees(-80.3, speedPct=4)
+    br.moveRightAttachmentMotorForDegrees(-86, speedPct=4)
     br.waitForMillis(50)
-    br.driveForDistance(mm(8.4), speedPct=20)
+    br.driveForDistance(mm(9), speedPct=20)
     br.waitForMillis(60)
 
 
