@@ -17,15 +17,20 @@ def Run(br: BaseRobot):
     # The Robot must be aligned along the South Wall and againt the Square and Rectagle Aligners.
 
     br.driveForDistance(mm(3))
-    br.curve(mm(5), -53, speedPct=25)
+    br.curve(mm(5), -60, speedPct=25)
     br.driveForDistance(mm(23))
-    br.turnInPlace(32)
+    br.turnInPlace(52)
+    br.driveForDistance(mm(1))
     br.driveForDistance(mm(-8))
+    br.driveForDistance(mm(3))
     br.turnInPlace(-20)
-    br.curve(mm(-5, 25))
-    br.driveForMillis(millis=(3))
-    br.driveForMillis(3000)
-    
+    br.driveForDistance(mm(6))
+    br.turnInPlace(-15)
+    br.driveForDistance(mm(4.95))
+    br.turnInPlace(-10)
+    br.driveForDistance(mm(-25))
+    br.turnInPlace(-50)
+    br.driveForDistance(mm(-5))
 
 
     
