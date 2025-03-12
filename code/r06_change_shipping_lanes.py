@@ -12,25 +12,38 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-
+    # start on right side, facing north, on the first black notch from the edge of the mat
+    # get to boat
     br.driveForDistance(mm(13.7), 50)
     br.curve(mm(5), -45, 40)
+
+    # rotate boat
     br.moveRightAttachmentMotorForDegrees(500, 30)
+
+    # move atachment up(avoids getting caught on boat)
     br.moveRightAttachmentMotorForDegrees(-250, 100)
+
+    # get to sonar
     br.driveForDistance(mm(-2),30)
     br.driveForDistance(mm(2),30)
     br.driveForDistance(mm(9.7), 50)
     br.curve(mm(5), -45, 40)
+
+    # do sonar
     br.driveForDistance(mm(2), 50)
     br.curve(mm(1), 80, 40)
     br.driveForDistance(mm(5))
     br.curve(0, 65, 50)
+
+    # get to sample
     br.driveForDistance(mm(-3),20)
     br.curve(0, 52, 40)
     br.driveForDistance(mm(14), 50)
-    br.driveForDistance(mm(-8), 50)
-    br.curve(0, 80, 40)
-    br.driveForDistance(mm(24), 50)
+    
+    # return home
+    br.driveForDistance(mm(-8), 100)
+    br.curve(0, 80, 100)
+    br.driveForDistance(mm(24), 100)
 
 
 # Don't modify the code below
