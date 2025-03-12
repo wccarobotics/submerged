@@ -12,14 +12,22 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
+    # start on left side with the square aligner at the corner of the mat. put robot north of the square aligner facing east
+    # get to mission model and lower atatchment
+    br.driveForDistance(mm(24), 50)
+    br.curve(mm(7), -45, 40)
+    br.driveForDistance(mm(3), 50)
+    br.moveLeftAttachmentMotorForDegrees(150, 50)
 
-    # Your mission code goes here, step-by-step
-    # It MUST be indented just like the lines below
-
-    br.driveForDistance(mm(24),50)
+    # grab
+    br.driveForDistance(mm(-12), 100)
     br.moveLeftAttachmentMotorForDegrees(-200, 100)
-    br.curve(mm(10), -45, 40)
-    br.moveLeftAttachmentMotorForDegrees(200, 50)
+
+    # get to the right side
+    br.curve(mm(15), 50, 70)
+    br.curve(mm(2), -10)
+    br.curve(mm(2), 20)
+    br.driveForDistance(mm(48), 100)
 
 
 # Don't modify the code below
