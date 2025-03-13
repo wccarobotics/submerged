@@ -12,13 +12,31 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    br.turnInPlace(45)
-    br.driveForDistance(mm(5), speedPct=50)
-    br.turnInPlace(-36)
-    br.driveForDistance(mm(-5), speedPct=-50)
-    # br.moveLeftAttachmentMotorForDegrees(mm(6), speedPct=-45)
-    
-
+    # First Script
+    # br.driveForDistance(mm(15), speedPct=50)
+    # br.waitForMillis(500)
+    # br.curve(mm(1.2), -15, speedPct=34)
+    # br.driveForDistance(mm(1.5), speedPct=20)
+    # br.turnInPlace(50)
+    # br.driveForDistance(mm(-2), speedPct=35)
+    # br.driveForDistance(mm(4), speedPct=45)
+    # br.curve(mm(2.4), 25, speedPct=70)
+    # br.curve(mm(-2.4), 25, speedPct=70)
+    # br.driveForDistance(mm(-15))
+    # br.waitForMillis(2500)
+    # Second Script
+    br.driveForDistance(mm(6.5), speedPct=50)
+    br.waitForMillis(50)
+    br.curve(mm(11), 37, speedPct=90)
+    br.curve(mm(11), -37, speedPct=90)
+    br.moveLeftAttachmentMotorForDegrees(mm(3), speedPct=-50)
+    br.curve(mm(6), 31, speedPct=20)
+    br.driveForDistance(mm(-0.7))
+    br.curve(mm(-6), 31, speedPct=20)
+    br.driveForDistance(mm(8), speedPct=70)
+    br.moveLeftAttachmentMotorForDegrees(-240)
+    br.turnInPlace(-9)
+    br.driveForDistance(mm(14), speedPct=70)
 
 
 # It runs the Run method if this file is run directly (not from the master program)
