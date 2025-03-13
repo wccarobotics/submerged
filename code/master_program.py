@@ -15,11 +15,10 @@ runs = {
     1: raise_mast.Run,
     2: board_cross.Run,
     3: squid.Run,
-    4: angler.Run,
-    5: r06_change_shipping_lanes.Run,
-    6: send_over_submersible.Run,
-    7: squid_delivery.Run,
-    8: crabz.Run,
+    4: r06_change_shipping_lanes.Run,
+    5: send_over_submersible.Run,
+    6: squid_delivery.Run,
+    # 8: crabz.Run,
 }
 br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
 br.hub.light.on(Color.BLUE)
