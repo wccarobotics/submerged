@@ -15,9 +15,9 @@ def Run(br: BaseRobot):
     # start on left side with the square aligner at the corner of the mat. put robot north of the square aligner facing east
     # get to mission model and lower atatchment
     br.driveForDistance(mm(24), 50)
-    br.curve(mm(7), -45, 40)
+    br.curve(mm(8), -45, 40)
     br.driveForDistance(mm(3), 50)
-    br.moveLeftAttachmentMotorForDegrees(150, 50)
+    br.moveLeftAttachmentMotorForDegrees(150, 20)
 
     # grab
     br.driveForDistance(mm(-12), 100)
@@ -25,8 +25,6 @@ def Run(br: BaseRobot):
 
     # get to the right side
     br.curve(mm(15), 50, 70)
-    br.curve(mm(2), -10)
-    br.curve(mm(2), 20)
     br.driveForDistance(mm(48), 100)
 
 
