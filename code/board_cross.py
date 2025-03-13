@@ -12,7 +12,7 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    # start on left side with the square aligner at the corner of the mat. put robot north of the square aligner facing east
+    # start on left side with the square aligner at the corner of the mat. put robot north of the square aligner facing east. have arm all the way up
     # get to mission model and lower atatchment
     br.driveForDistance(mm(24), 50)
     br.curve(mm(8), -45, 40)
@@ -24,8 +24,8 @@ def Run(br: BaseRobot):
     br.moveLeftAttachmentMotorForDegrees(-200, 100)
 
     # get to the right side
-    br.curve(mm(15), 50, 70)
-    br.driveForDistance(mm(48), 100)
+    br.curve(mm(15), 52, 100)
+    br.driveArcDist(mm(96), mm(48))
 
 
 # Don't modify the code below
