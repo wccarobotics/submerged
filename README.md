@@ -1,4 +1,6 @@
-# WCCA Robotics
+<img src="/images/FLL%202025%20Logo%20Marcus%20Bartholomew%20the%20Third%20Junior.png" width="525"/>
+
+# WCCA Robotics - Team Marcus Bartholomew The Third Junior
 
 [2024 Competition Robot Run](https://www.youtube.com/watch?v=VYHs2L9nEM0)
 
