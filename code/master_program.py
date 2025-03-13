@@ -27,8 +27,10 @@ while True:
     pressed = br.hub.buttons.pressed()
     if Button.RIGHT in pressed:
         run += 1
+        wait(150)
     if Button.LEFT in pressed:
         run -= 1
+        wait(150)
     if run < 0:
         run = len(runs) - 1
     if run > len(runs) - 1:
@@ -39,4 +41,3 @@ while True:
         run += 1
     br.hub.light.on(Color.BLUE)
     br.hub.display.number(run)
-    wait(150)
