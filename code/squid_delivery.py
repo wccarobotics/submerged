@@ -16,33 +16,17 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
     # The Robot must be aligned along the South Wall and againt the Square and Rectagle Aligners. Squid must be facing forward
 
-    # deliver squid
+    # get to mission model
     br.driveForDistance(mm(3), 50)
     br.curve(mm(5), -60, 25)
     br.driveForDistance(mm(20), 50)
     br.turnInPlace(45, 50)
     br.driveForDistance(mm(4), 50)
 
-    # back out of squid
-    br.driveForDistance(mm(-8), 50)
-
     # angler fish
-    br.driveForDistance(mm(3), 50)
-    br.curve(mm(5), -20)
+    br.curve(mm(2), -30, 50)
+    br.turnInPlace(30, 50)
     br.driveForDistance(mm(6), 50)
-    br.turnInPlace(-15, 50)
-    br.driveForDistance(mm(4.95), 50)
-
-    # get home
-    br.turnInPlace(-7, 50)
-    br.driveForDistance(mm(-23), 50)
-    br.turnInPlace(-50, 50)
-    br.driveForDistance(mm(-24), 50)
-
-
-    
- 
-
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
