@@ -15,11 +15,11 @@ def Run(br: BaseRobot):
     # The Robot must be aligned on the South Wall against the Square Aligner
     br.driveForDistance(mm(12.4), speedPct=50)
     br.curve(mm(10), 90, speedPct=50)
-    br.driveForMillis(1550, speedPct=5)
-    br.driveForDistance(mm(-10), speedPct=-50)
+    br.driveForMillis(1575, speedPct=9)
+    br.driveForDistance(mm(-10), speedPct=-40)
     br.turnInPlace(85)
-    br.curve(350, 40)
-    br.driveForDistance(mm(18), speedPct=30)
+    br.curve(330, 25)
+    br.driveForDistance(mm(20), speedPct=35)
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
