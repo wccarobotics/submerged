@@ -37,7 +37,7 @@ def Run(br: BaseRobot):
 
     # get to sample
     br.driveForDistance(mm(-3),20)
-    br.curve(0, 52, 40)
+    br.curve(0, 57, 40)
     br.driveForDistance(mm(14), 50)
     
     # return home
