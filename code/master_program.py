@@ -2,7 +2,7 @@ from base_robot import *
 from pybricks.tools import Matrix
 
 # Import missions
-import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, crabz, celebrate, clean_wheels
+import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, crabz, celebrate, clean_wheels, images, demo_straight, demo_turn
 
 
 br = BaseRobot()
@@ -20,26 +20,19 @@ runs = {
     # 8: crabz.Run,
 }
 
-options = {0: clean_wheels.Run, 1: celebrate.Run}
-CLEAN_WHEELS = Matrix(
-    [
-        [0, 100, 100, 100, 0],
-        [100, 0, 50, 0, 100],
-        [100, 50, 100, 50, 100],
-        [100, 0, 50, 0, 100],
-        [0, 100, 100, 100, 0],
-    ]
-)
+utilities = {
+    0: clean_wheels.Run,
+    1: celebrate.Run,
+    2: demo_straight.Run,
+    3: demo_turn.Run,
+}
 
-STAR = Matrix(
-    [
-        [50, 0, 100, 0, 50],
-        [0, 50, 100, 50, 0],
-        [100, 100, 100, 100, 100],
-        [0, 50, 100, 50, 0],
-        [50, 0, 100, 0, 50],
-    ]
-)
+utility_images = {
+    0: images.CLEAN_WHEELS_1,
+    1: images.STAR,
+    2: images.UP_ARROW,
+    3: images.LEFT_TURN_ARROW,
+}
 
 br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
 br.hub.light.on(Color.BLUE)
@@ -61,6 +54,7 @@ while True:
             run = 0
         if Button.CENTER in pressed:
             br.hub.light.on(Color.MAGENTA)
+            br.hub.display.animate([images.RUNNING_1, images.RUNNING_2], 300)
             runs[run](br)
             run += 1
             if run > len(runs) - 1:
@@ -79,15 +73,15 @@ while True:
             func -= 1
             wait(170)
         if func < 0:
-            func = len(options) - 1
-        if func > len(options) - 1:
+            func = len(utilities) - 1
+        if func > len(utilities) - 1:
             func = 0
-        if func == 0:
-            br.hub.display.icon(CLEAN_WHEELS)
-        if func == 1:
-            br.hub.display.icon(STAR)
+        br.hub.display.icon(utility_images[func])
         if Button.CENTER in pressed:
-            options[func](br)
+            br.hub.light.on(Color.MAGENTA)
+            wait(170)
+            utilities[func](br)
+            wait(170)
         br.hub.light.on(Color.CYAN)
         if Button.BLUETOOTH in pressed:
             mode = 0
