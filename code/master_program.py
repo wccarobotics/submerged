@@ -2,7 +2,7 @@ from base_robot import *
 from pybricks.tools import hub_menu
 
 # Import missions
-import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, angler, r06_change_shipping_lanes, send_over_submersible, crabz
+import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, crabz, celebrate
 
 
 br = BaseRobot()
@@ -39,5 +39,7 @@ while True:
         br.hub.light.on(Color.GREEN)
         runs[run](br)
         run += 1
+        if run > len(runs) - 1:
+            celebrate.Run(br)
     br.hub.light.on(Color.BLUE)
     br.hub.display.number(run)
