@@ -15,44 +15,45 @@ def Run(br: BaseRobot):
     # please do not use unnecessary waits and maybe don't use variables
 
     # get to coral and diver
-    br.driveArcDist(mm(35.4), mm(26))
+    br.driveArcDist(mm(35.4), mm(26), 50)
     br.driveForDistance(mm(7.2), speedPct=45)
-    br.turnInPlace(223, 30)
+    br.turnInPlace(225, 30)
 
     # raise coral buds
-    br.driveForDistance(mm(6), speedPct=40)
+    br.driveForDistance(mm(6.5), speedPct=30)
 
     # grab diver
-    br.moveRightAttachmentMotorForDegrees(85, speedPct=30)
+    br.moveRightAttachmentMotorForDegrees(190, speedPct=20)
+    wait(500)
 
     # visit Marcus
-    br.waitForMillis(30)
-    br.driveForDistance(mm(-6), speedPct=50)
-    br.waitForMillis(500)
-    br.turnInPlace(37.5)
-    br.driveForDistance(mm(9.2), speedPct=40)
-    br.waitForMillis(40)
+    br.driveForDistance(mm(-6.5), speedPct=50)
+    wait(500)
+    br.turnInPlace(35)
+    br.driveForDistance(mm(9.5), speedPct=40)
+    wait(40)
 
     # say good bye to marcus
     br.driveForDistance(mm(-9.2), speedPct=-40)
 
     # align with coral reef
-    br.turnInPlace(65)
-    br.driveForMillis(60)
-    br.driveForDistance(mm(-7), speedPct=40)
+    br.turnInPlace(65, 20)
+    br.driveForMillis(60, 50)
+    br.driveForDistance(mm(-5), speedPct=30)
 
     # lower diver
-    br.moveRightAttachmentMotorForDegrees(-42, speedPct=4)
-    br.waitForMillis(50)
+    br.moveRightAttachmentMotorForDegrees(-120, speedPct=15)
+    wait(50)
 
     # deliver diver
-    br.turnInPlace(-13)
-    br.driveForDistance(mm(8.5), speedPct=20)
-    br.waitForMillis(60)
-    br.moveRightAttachmentMotorForDegrees(-40.4, speedPct=3)
+    br.turnInPlace(-11)
+    br.driveForDistance(mm(6.5), speedPct=20)
+    wait(60)
+    br.moveRightAttachmentMotorForDegrees(-90, 100)
 
     # get home
-    br.driveArcDist(mm(-24), mm(-12), 40)
+    br.driveArcDist(mm(-20), mm(-12), 40)
+    br.driveForDistance(mm(-24), 100)
 
 
 
