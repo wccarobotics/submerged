@@ -85,4 +85,5 @@ while True:
         br.hub.light.on(Color.CYAN)
         if Button.BLUETOOTH in pressed:
             mode = 0
+            func = 0
             wait(250)
