@@ -12,39 +12,47 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    # br.moveRightAttachmentMotorForDegrees(mm(-1.5), speedPct=-20) # -- If i need to move the scuba diver one at the start 👌
-    a = -2.4
-    b = 20
-    pos_distance_to_yellow_thing = 5.8
-    neg_distance_to_yellow_thing = -pos_distance_to_yellow_thing
+    # please do not use unnecessary waits and maybe don't use variables
+
+    # get to coral and diver
     br.driveArcDist(mm(35.4), mm(26))
-    br.waitForMillis(80)
     br.driveForDistance(mm(7.2), speedPct=45)
-    br.waitForMillis(30)
-    br.turnInPlace(221)
-    br.waitForMillis(30)
-    br.driveForDistance(mm(pos_distance_to_yellow_thing), speedPct=37)
+    br.turnInPlace(223, 30)
+
+    # raise coral buds
+    br.driveForDistance(mm(6), speedPct=40)
+
+    # grab diver
     br.moveRightAttachmentMotorForDegrees(85, speedPct=30)
+
+    # visit Marcus
     br.waitForMillis(30)
-    br.driveForDistance(mm(neg_distance_to_yellow_thing), speedPct=-43)
+    br.driveForDistance(mm(-6), speedPct=50)
     br.waitForMillis(500)
     br.turnInPlace(37.5)
-    br.waitForMillis(43)
-    br.driveForDistance(mm(8.9), speedPct=40)
+    br.driveForDistance(mm(9.2), speedPct=40)
     br.waitForMillis(40)
-    br.driveForDistance(mm(-8.9), speedPct=-40)
+
+    # say good bye to marcus
+    br.driveForDistance(mm(-9.2), speedPct=-40)
+
+    # align with coral reef
     br.turnInPlace(65)
     br.driveForMillis(60)
-    br.driveForDistance(mm(-7.1), speedPct=39)
+    br.driveForDistance(mm(-7), speedPct=40)
+
+    # lower diver
     br.moveRightAttachmentMotorForDegrees(-42, speedPct=4)
     br.waitForMillis(50)
+
+    # deliver diver
     br.turnInPlace(-13)
     br.driveForDistance(mm(8.5), speedPct=20)
     br.waitForMillis(60)
-    br.moveRightAttachmentMotorForDegrees(40.4, speedPct=-4)
-    br.driveForDistance(mm(-12), speedPct=20)
-    br.waitForMillis(50)
-    br.curve(mm(-26), -45, speedPct=50)
+    br.moveRightAttachmentMotorForDegrees(-40.4, speedPct=3)
+
+    # get home
+    br.driveArcDist(mm(-24), mm(-12), 40)
 
 
 
