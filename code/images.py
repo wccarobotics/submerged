@@ -35,6 +35,17 @@ STAR = Matrix(
     ]
 )
 
+# alternate 8 pointed star sprite
+STAR_2 = Matrix(
+    [
+        [100, 0, 50, 0, 100],
+        [0, 100, 50, 100, 0],
+        [50, 50, 100, 50, 50],
+        [0, 100, 50, 100, 0],
+        [100, 0, 50, 0, 100],
+    ]
+)
+
 # failed atempt at displaying marcus
 MARCUS = Matrix(
     [
