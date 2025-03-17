@@ -13,30 +13,31 @@ from base_robot import *
 
 def Run(br: BaseRobot):
     # please do not use unnecessary waits and maybe don't use variables
+    # use negative distance when driving backwards not negative speed
 
     # get to coral and diver
     br.driveArcDist(mm(35.4), mm(26), 50)
-    br.driveForDistance(mm(6.3), speedPct=45)
+    br.driveForDistance(mm(5.8), speedPct=45)
     br.moveRightAttachmentMotorForDegrees(180, 20)
-    br.turnInPlace(-135, 30)
+    br.turnInPlace(-140, 30)
     br.moveRightAttachmentMotorForDegrees(-180, 20)
 
     # raise coral buds
-    br.driveForDistance(mm(6), speedPct=30)
+    br.driveForDistance(mm(5.5), speedPct=30)
 
     # grab diver
     br.moveRightAttachmentMotorForDegrees(190, speedPct=20)
     wait(500)
 
     # visit Marcus
-    br.driveForDistance(mm(-6.5), speedPct=50)
+    br.driveForDistance(mm(-6), speedPct=50, accelerationPct=50)
     wait(500)
     br.turnInPlace(35)
-    br.driveForDistance(mm(9.5), speedPct=40)
+    br.driveForDistance(mm(9.7), speedPct=20)
     wait(40)
 
     # say good bye to marcus
-    br.driveForDistance(mm(-9.2), speedPct=-40)
+    br.driveForDistance(mm(-9.2), speedPct=40)
 
     # align with coral reef
     br.turnInPlace(65, 20)
@@ -54,9 +55,8 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(-90, 100)
 
     # get home
-    br.driveArcDist(mm(-20), mm(-12), 30)
+    br.driveArcDist(mm(-20), mm(-12), 30, accelPct=30)
     br.driveForDistance(mm(-24), 100)
-
 
 
 # It runs the Run method if this file is run directly (not from the master program)
