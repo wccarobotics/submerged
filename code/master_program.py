@@ -54,7 +54,7 @@ while True:
             run = 0
         if Button.CENTER in pressed:
             br.hub.light.on(Color.MAGENTA)
-            br.hub.display.animate([images.RUNNING_1, images.RUNNING_2], 300)
+            br.hub.display.animate([images.RUNNING_1, images.RUNNING_2, images.RUNNING_3, images.RUNNING_4, images.RUNNING_5, images.RUNNING_6, images. RUNNING_7], 300)
             runs[run](br)
             run += 1
             if run > len(runs) - 1:
