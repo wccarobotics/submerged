@@ -25,8 +25,12 @@ def Run(br: BaseRobot):
 
     # angler fish
     br.curve(mm(2), -30, 50)
-    br.turnInPlace(30, 50)
-    br.driveForDistance(mm(6), 50)
+    br. driveForDistance(mm(4), 30)
+    br.curve(mm(2), -25, 40)
+    br.driveForDistance(mm(4), 30)
+    br.driveForDistance(mm(-6), 50)
+    br.turnInPlace(-30)
+    br.driveForDistance(mm(-6))
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
