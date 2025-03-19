@@ -17,11 +17,12 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(24), 50)
     br.curve(mm(8), -45, 40)
     br.driveForDistance(mm(3), 50)
-    br.moveLeftAttachmentMotorForDegrees(150, 20)
+    br.moveLeftAttachmentMotorForDegrees(120, 20)
 
     # grab
     br.driveForDistance(mm(-12), 100)
     br.moveLeftAttachmentMotorForDegrees(-200, 100)
+    br.moveLeftAttachmentMotorForDegrees(100, 100)
 
     # get to the right side
     br.curve(mm(15), 52, 100)
