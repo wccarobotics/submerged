@@ -6,7 +6,7 @@ import images
 def Run(br: BaseRobot):
     br.hub.display.animate([images.CLEAN_WHEELS_1, images.CLEAN_WHEELS_2], 300)
     while not Button.CENTER in br.hub.buttons.pressed():
-        br.driveForMillis(100, 25, gyro=False, accelerationPct=100)
+        br.driveForMillis(100, 40, gyro=False, accelerationPct=100)
 
 
 # Don't modify the code below
