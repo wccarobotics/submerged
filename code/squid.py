@@ -12,19 +12,13 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    # The Robot must be lined up along the South Wall using the Square Aligner.
-    # Your mission code goes here, step-by-step
-    # It MUST be indented just like the lines below
+    # The Robot must be lined with the 45 degree aligner on the notch
 
-    br.curve(mm(15), -45, speedPct=50)
+    # release squid
+    br.driveForDistance(mm(24))
 
-    br.driveForMillis(1500, speedPct=50)
-    br.driveForDistance(mm(-18), speedPct=-50)
-
-
-
-    
- 
+    # bring squid home
+    br.driveForDistance(mm(-24))
 
 
 # Don't modify the code below
