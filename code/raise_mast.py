@@ -28,13 +28,10 @@ def Run(br: BaseRobot):
     # get home
     br.turnInPlace(85, 100)
     br.curve(330, 100)
-    br.driveForDistance(mm(20), speedPct=100)
+
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
 if __name__ == "__main__":
     br = BaseRobot()
     Run(br)
-
-
-
