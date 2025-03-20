@@ -44,18 +44,32 @@ while True:
     if mode == 0:
         if Button.RIGHT in pressed:
             run += 1
-            wait(170)
+            wait(200)
         if Button.LEFT in pressed:
             run -= 1
-            wait(170)
+            wait(200)
         if run < 0:
             run = len(runs) - 1
         if run > len(runs) - 1:
             run = 0
         if Button.CENTER in pressed:
             br.hub.light.on(Color.MAGENTA)
-            br.hub.display.animate([images.RUNNING_1, images.RUNNING_2, images.RUNNING_3, images.RUNNING_4, images.RUNNING_5, images.RUNNING_6, images. RUNNING_7], 300)
+            br.hub.display.animate(
+                [
+                    images.RUNNING_1,
+                    images.RUNNING_2,
+                    images.RUNNING_3,
+                    images.RUNNING_4,
+                    images.RUNNING_5,
+                    images.RUNNING_6,
+                    images.RUNNING_7,
+                ],
+                300,
+            )
+            wait(100)
+            br.hub.system.set_stop_button([Button.CENTER])
             runs[run](br)
+            br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
             run += 1
             if run > len(runs) - 1:
                 celebrate.Run(br)
@@ -68,10 +82,10 @@ while True:
     if mode == 1:
         if Button.RIGHT in pressed:
             func += 1
-            wait(170)
+            wait(200)
         if Button.LEFT in pressed:
             func -= 1
-            wait(170)
+            wait(200)
         if func < 0:
             func = len(utilities) - 1
         if func > len(utilities) - 1:
