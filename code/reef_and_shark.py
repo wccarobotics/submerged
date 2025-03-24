@@ -49,14 +49,14 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(-3), speedPct=30)
 
     # lower diver
-    br.moveRightAttachmentMotorForDegrees(-120, speedPct=15)
+    br.moveRightAttachmentMotorForDegrees(-100, speedPct=15)
     wait(50)
 
     # deliver diver
-    br.turnInPlace(-10)
+    br.turnInPlace(-20)
     br.driveForDistance(mm(7.5), speedPct=20)
     wait(60)
-    br.moveRightAttachmentMotorForDegrees(-120, 100)
+    br.moveRightAttachmentMotorForDegrees(-140, 100)
 
     # get home
     br.driveArcDist(mm(-20), mm(-10), 30, accelPct=30)

@@ -10,14 +10,14 @@ br = BaseRobot()
 pressed = []
 
 runs = {
-    0: clean_and_reef,
+    0: clean_and_reef.Run,
     1: reef_and_shark.Run,
     2: raise_mast.Run,
     3: board_cross.Run,
     4: squid.Run,
     5: r06_change_shipping_lanes.Run,
     6: send_over_submersible.Run,
-    7: squid_delivery.Run,
+    7 : squid_delivery.Run,
     # 8: crabz.Run,
 }
 
@@ -67,7 +67,7 @@ while True:
                 ],
                 300,
             )
-            wait(100)
+            wait(500)
             br.hub.system.set_stop_button([Button.CENTER])
             runs[run](br)
             br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
