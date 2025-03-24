@@ -1,22 +1,12 @@
 from base_robot import *
 
-# Copy this text into a new mission file. Name it something like
-# r02_unexpected_encounter.  Don't use any spaces or punctuation,
-# other than _. The name MUST end with .py
-#
-# Add good comments, such as what the mission is supposed to do,
-# how to align the robot in home, any initial starting instructions,
-# such as how it should be loaded with anything, arm positions, etc.
-#
-# These existing comments can be deleted
-
 
 def Run(br: BaseRobot):
-    # start on left side facing north, left of the 3rd dark black notch
+    # Start on left side. Make a line between robot, debris, and mission. Place robot on the line facing misssion. If this is hard use the one skill you learned in the hours you wasted on fortnite and aim. That simple! Oh wait, you use aimbot and can't aim. Imagine getting roasted at your fortnite skills by someone who doesn't even play fortnite. Imagine!
     # get to mission and clean
-    br.driveArcDist(mm(36), mm(15), 100, then=Stop.COAST)
-    br.driveForDistance(mm(24), 100)
+    br.driveForDistance(mm(36), 60)
     br.driveForDistance(mm(-48), 100)
+
 
 # It runs the Run method if this file is run directly (not from the master program)
 if __name__ == "__main__":
