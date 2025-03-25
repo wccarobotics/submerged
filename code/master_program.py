@@ -17,7 +17,7 @@ runs = {
     4: squid.Run,
     5: r06_change_shipping_lanes.Run,
     6: send_over_submersible.Run,
-    7 : squid_delivery.Run,
+    7: squid_delivery.Run,
 }
 
 utilities = {
@@ -43,6 +43,7 @@ mode = 0
 func = 0
 while True:
     pressed = br.hub.buttons.pressed()
+    stopped = False
     if mode == 0:
         if Button.RIGHT in pressed:
             run += 1
@@ -70,10 +71,18 @@ while True:
             )
             wait(500)
             br.hub.system.set_stop_button([Button.CENTER])
-            runs[run](br)
+            try:
+                runs[run](br)
+            except SystemExit:
+                br.leftDriveMotor.stop()
+                br.rightDriveMotor.stop()
+                br.leftAttachmentMotor.stop()
+                br.rightAttachmentMotor.stop()
+                wait(500)
+                stopped = True
             br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
             run += 1
-            if run > len(runs) - 1:
+            if run > len(runs) - 1 and not stopped:
                 celebrate.Run(br)
         br.hub.display.number(run)
         br.hub.light.on(Color.GREEN)
