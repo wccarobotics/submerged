@@ -2,7 +2,7 @@ from base_robot import *
 from pybricks.tools import Matrix
 
 # Import missions
-import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, crabz, celebrate, clean_wheels, images, demo_straight, demo_turn, clean_and_reef
+import reef_and_shark, raise_mast, board_cross, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, Battery, celebrate, clean_wheels, images, demo_straight, demo_turn, clean_and_reef
 
 
 br = BaseRobot()
@@ -18,21 +18,22 @@ runs = {
     5: r06_change_shipping_lanes.Run,
     6: send_over_submersible.Run,
     7 : squid_delivery.Run,
-    # 8: crabz.Run,
 }
 
 utilities = {
     0: clean_wheels.Run,
-    1: celebrate.Run,
-    2: demo_straight.Run,
-    3: demo_turn.Run,
+    1: Battery.Run,
+    2: celebrate.Run,
+    3: demo_straight.Run,
+    4: demo_turn.Run,
 }
 
 utility_images = {
     0: images.CLEAN_WHEELS_1,
-    1: images.STAR,
-    2: images.UP_ARROW,
-    3: images.LEFT_TURN_ARROW,
+    1: images.BATTERY,
+    2: images.STAR,
+    3: images.UP_ARROW,
+    4: images.LEFT_TURN_ARROW,
 }
 
 br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
