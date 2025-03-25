@@ -6,7 +6,7 @@
 
 ## Useful links
 
-- [Robot Game Rulebook](https://firstinspires.blob.core.windows.net/fll/challenge/2024-25/fll-challenge-submerged-en-eng.pdf)
+- [Robot Game Rulebook](https://firstinspires.blob.core.windows.net/fll/challenge/2024-25/fll-challenge-submerged-rgr-eng.pdf)
 - [Competition Judging Rubrics](https://firstinspires.blob.core.windows.net/fll/challenge/2024-25/fll-challenge-submerged-rubrics-color.pdf)
 - [Judging session script and questions](https://firstinspires.blob.core.windows.net/fll/challenge/2024-25/fll-challenge-submerged-judging-session-script-questions.pdf)
 - [DroidBot E Building Instructions](https://flltutorials.com/en/robotgame/building/one%20kit%20build/2020/07/06/DroidBotE.html)
