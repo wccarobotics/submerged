@@ -32,12 +32,10 @@ def Run(br: BaseRobot):
     # turn to leave mission model
     br.curve(0, 25, 30)
 
-    
     # get home
-    br.driveForDistance(mm(-8), 100)
-    br.turnInPlace(-45)
-    br.curve(mm(-4), -90, 100)
-    br.driveForDistance(mm(-36), 100)
+    br.driveArcDist(mm(8), mm(-8), 100)
+    br.curve(mm(-4), -50, 100)
+    br.driveForDistance(mm(-40), 100)
 
 
 # Don't modify the code below
