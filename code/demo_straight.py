@@ -5,7 +5,7 @@ from base_robot import *
 
 def Run(br: BaseRobot):
 
-    br.driveForDistance(mm(48), 50)
+    br.driveForDistance(mm(120), 50)
 
 
 # Don't modify the code below
