@@ -5,19 +5,24 @@ def Run(br: BaseRobot):
     # get to boat
     initial_heading = br.hub.imu.heading()
 
-    br.driveForDistance(mm(13.5), 50)
+    br.driveForDistance(mm(14), 50)
     br.curve(mm(5), -45, 40)
 
     # rotate boat
     br.moveRightAttachmentMotorForDegrees(500, 30)
+    br.driveForDistance(mm(-5), 30)
+    br.driveForDistance(mm(4), 30)
 
     # move atachment up(avoids getting caught on boat)
     wait(500)
     br.moveRightAttachmentMotorForDegrees(-250, 100)
 
     # get to sonar
-    br.driveForDistance(mm(-2), 30)
-    br.driveForDistance(mm(2), 30)
+    print("Initial heading: " + str(initial_heading))
+    print("Current heading: " + str(br.hub.imu.heading()))
+    turn_angle = ((initial_heading - br.hub.imu.heading())) - 50
+    print("Turn angle: " + str(turn_angle))
+    br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(9.7), 50, accelerationPct=40)
     br.curve(mm(7), -30, 40)
     br.driveForDistance(mm(5), 50)
