@@ -19,7 +19,7 @@ def Run(br: BaseRobot):
     br.driveArcDist(mm(35.4), mm(26), 50, then=Stop.NONE)
     br.driveForDistance(mm(5.8), speedPct=45)
     br.moveRightAttachmentMotorForDegrees(200, 20)
-    br.turnInPlace(-137, 30)
+    br.turnInPlace(-135, 30)
     br.moveRightAttachmentMotorForDegrees(-230, 20)
 
     # raise coral buds
@@ -53,7 +53,7 @@ def Run(br: BaseRobot):
     wait(50)
 
     # deliver diver
-    br.turnInPlace(-17)
+    br.turnInPlace(-25)
     br.driveForDistance(mm(7.5), speedPct=20)
     wait(60)
     br.moveRightAttachmentMotorForDegrees(-150, 100)
