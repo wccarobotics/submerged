@@ -18,8 +18,8 @@ def Run(br: BaseRobot):
     # get to coral and diver
     br.driveArcDist(mm(35.4), mm(26), 50, then=Stop.NONE)
     br.driveForDistance(mm(5.8), speedPct=45)
-    br.moveRightAttachmentMotorForDegrees(200, 20)
-    br.turnInPlace(-135, 30)
+    br.moveRightAttachmentMotorForDegrees(200, 20, wait=False)
+    br.turnInPlace(-133, 30)
     br.moveRightAttachmentMotorForDegrees(-230, 20)
 
     # raise coral buds
@@ -30,10 +30,10 @@ def Run(br: BaseRobot):
     wait(500)
 
     # visit Marcus
-    br.driveForDistance(mm(-6), speedPct=50, accelerationPct=30)
+    br.driveForDistance(mm(-4), speedPct=50, accelerationPct=30)
     wait(500)
     br.turnInPlace(35, then=Stop.NONE)
-    br.driveForDistance(mm(9.7), speedPct=20)
+    br.driveForDistance(mm(8.7), speedPct=10)
     wait(40)
 
     # say good bye to marcus
@@ -53,7 +53,7 @@ def Run(br: BaseRobot):
     wait(50)
 
     # deliver diver
-    br.turnInPlace(-25)
+    br.turnInPlace(-20)
     br.driveForDistance(mm(7.5), speedPct=20)
     wait(60)
     br.moveRightAttachmentMotorForDegrees(-150, 100)
