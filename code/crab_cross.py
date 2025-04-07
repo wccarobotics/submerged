@@ -15,20 +15,20 @@ def Run(br: BaseRobot):
     # start on left side with the square aligner at the corner of the mat. put robot north of the square aligner facing east. have arm all the way up
     # get to mission model and lower atatchment
     br.moveRightAttachmentMotorForDegrees(-200, wait=False)
-    br.driveForDistance(mm(24), 50)
-    br.curve(mm(8), -45, 40)
+    br.driveForDistance(mm(24), 50, then=Stop.NONE)
+    br.curve(mm(8), -45, 40, then=Stop.NONE)
     br.driveForDistance(mm(3), 50)
     br.moveLeftAttachmentMotorForDegrees(100, 20)
 
     # grab
     br.driveForDistance(mm(-10), 100)
-    br.moveLeftAttachmentMotorForDegrees(-200, 100)
+    br.moveLeftAttachmentMotorForDegrees(-125, 100)
     br.moveLeftAttachmentMotorForDegrees(100, 100)
 
     # get to crabs
-    br.turnInPlace(40)
-    br.driveForDistance(mm(13.5), 50)
-    br.driveArcDist(mm(3), mm(1))
+    br.turnInPlace(45)
+    br.driveForDistance(mm(13.5), 50, then=Stop.NONE)
+    br.driveArcDist(mm(3), mm(1), 40)
 
     # do crabs
     br.moveRightAttachmentMotorForDegrees(200, 50)
@@ -36,8 +36,11 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(-8.5), 80)
     br.moveRightAttachmentMotorForDegrees(-300)
     br.driveArcDist(mm(-11.5), mm(5))
-    br.driveArcDist(mm(36), mm(24))
-    br.driveForDistance(mm(24))
+    br.driveArcDist(mm(26), mm(24), then=Stop.NONE)
+    br.turnInPlace(20)
+    br.driveForDistance(mm(-24))
+    br.driveForDistance(mm(36))
+    #br.driveForDistance(mm(24))
 
 
 # Don't modify the code below
