@@ -16,10 +16,10 @@ def Run(br: BaseRobot):
     # use negative distance when driving backwards not negative speed
 
     # get to coral and diver
-    br.driveArcDist(mm(35.4), mm(26), 50)
+    br.driveArcDist(mm(35.4), mm(26), 50, then=Stop.NONE)
     br.driveForDistance(mm(5.8), speedPct=45)
     br.moveRightAttachmentMotorForDegrees(200, 20)
-    br.turnInPlace(-132, 30)
+    br.turnInPlace(-137, 30)
     br.moveRightAttachmentMotorForDegrees(-230, 20)
 
     # raise coral buds
@@ -32,7 +32,7 @@ def Run(br: BaseRobot):
     # visit Marcus
     br.driveForDistance(mm(-6), speedPct=50, accelerationPct=30)
     wait(500)
-    br.turnInPlace(35)
+    br.turnInPlace(35, then=Stop.NONE)
     br.driveForDistance(mm(9.7), speedPct=20)
     wait(40)
 
@@ -59,8 +59,8 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(-150, 100)
 
     # get home
-    br.driveForDistance(mm(-2), speedPct=10)
-    br.driveArcDist(mm(-20), mm(-10), 30, accelPct=30)
+    br.driveForDistance(mm(-2), speedPct=10, then=Stop.NONE)
+    br.driveArcDist(mm(-20), mm(-10), 30, accelPct=30, then=Stop.NONE)
     br.driveForDistance(mm(-24), 100)
 
 
