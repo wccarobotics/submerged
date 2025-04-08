@@ -10,8 +10,8 @@ def Run(br: BaseRobot):
 
     # rotate boat
     br.moveRightAttachmentMotorForDegrees(500, 30)
-    br.driveForDistance(mm(-5), 30)
-    br.driveForDistance(mm(4), 30)
+    br.driveForMillis(500, -30)
+    br.driveForDistance(mm(2), 30)
 
     # move atachment up(avoids getting caught on boat)
     wait(500)
@@ -23,15 +23,15 @@ def Run(br: BaseRobot):
     turn_angle = ((initial_heading - br.hub.imu.heading())) - 50
     print("Turn angle: " + str(turn_angle))
     br.curve(0, turn_angle, 40)
-    br.driveForDistance(mm(9.7), 50, accelerationPct=40)
+    br.driveForDistance(mm(10.7), 50, accelerationPct=40, then=Stop.NONE)
     br.curve(mm(7), -30, 40)
-    br.driveForDistance(mm(5), 50)
+    # br.driveForDistance(mm(1), 50)
 
     # do sonar
-    br.curve(mm(0), 75, 40)
-    br.driveForDistance(mm(5), 50)
-    br.curve(0, 65, 50)
-    br.driveForDistance(mm(-3),20)
+    turn_angle = ((initial_heading - br.hub.imu.heading()))
+    br.curve(0, turn_angle, 40)
+    br.driveForDistance(mm(3), 20)
+    br.moveLeftAttachmentMotorForDegrees(-1200)
 
     # get to sample
     print("Initial heading: " + str(initial_heading))
@@ -42,8 +42,8 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(18), 50)
 
     # return home
-    br.driveForDistance(mm(-8), 100)
-    br.curve(0, 80, 100)
+    br.driveForDistance(mm(-10), 100)
+    br.curve(0, 70, 100)
     br.driveForDistance(mm(24), 100)
 
 
