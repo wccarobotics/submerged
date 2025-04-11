@@ -14,27 +14,27 @@ from base_robot import *
 def Run(br: BaseRobot):
     # Start on right side on the corner facing north
     # drive to mission
-    br.driveForDistance(mm(7.5), 50)
-    br.curve(350, -52)
+    br.driveForDistance(mm(7.5), 50, then=Stop.NONE)
+    br.curve(350, -50, then=Stop.NONE)
     br.driveForDistance(mm(19), 50)
 
     # get aligned
     br.curve(0, 10)
 
     # first push
-    br.driveForDistance(mm(9.5), 50)
+    br.driveForDistance(mm(9.5), 100, accelerationPct=100)
     br.driveForDistance(mm(-7.5), 20)
 
     # second push(for reliability)
-    br.driveForDistance(mm(8.5), 100)
+    br.driveForDistance(mm(9), 100, accelerationPct=100)
     br.driveForDistance(mm(-6), 50)
 
     # turn to leave mission model
     br.curve(0, 25, 30)
 
     # get home
-    br.driveArcDist(mm(8), mm(-8), 100)
-    br.curve(mm(-4), -50, 100)
+    br.driveArcDist(mm(8), mm(-6), 100, then=Stop.NONE)
+    br.curve(mm(-4), -40, 100, then=Stop.NONE)
     br.driveForDistance(mm(-40), 100)
 
 
