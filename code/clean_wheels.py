@@ -6,7 +6,12 @@ import images
 def Run(br: BaseRobot):
     br.hub.display.animate([images.CLEAN_WHEELS_1, images.CLEAN_WHEELS_2], 300)
     while not Button.CENTER in br.hub.buttons.pressed():
-        br.driveForMillis(100, 40, gyro=False, accelerationPct=100)
+        if Button.RIGHT in br.hub.buttons.pressed():
+            br.leftDriveMotor.run(500)
+            br.rightDriveMotor.stop()
+        if Button.LEFT in br.hub.buttons.pressed():
+            br.rightDriveMotor.run(500)
+            br.leftDriveMotor.stop()
 
 
 # Don't modify the code below
