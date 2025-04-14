@@ -19,21 +19,22 @@ def Run(br: BaseRobot):
 
     # get to mission model
     br.driveForDistance(mm(3), 50, then=Stop.NONE)
-    br.curve(mm(5), -55, 25, then=Stop.NONE)
+    br.curve(mm(5), -56, 25, then=Stop.NONE)
     br.driveForDistance(mm(23), 50, then=Stop.NONE)
     br.turnInPlace(45, 50)
     br.driveForDistance(mm(4), 50)
 
     # angler fish
-    br.turnInPlace(-45)
+    br.turnInPlace(-47)
     br.driveForDistance(mm(5), 40)
     br.curve(mm(3), -35)
-    br.driveForDistance(mm(2), 50)
+    br.driveForDistance(mm(3.2), 50)
     turn_angle = ((initial_heading - br.hub.imu.heading()-20))
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(10), 50)
-    # br.moveRightAttachmentMotorForDegrees(300)
-    # br.driveForDistance(mm(-3), 50)
+    br.moveRightAttachmentMotorForDegrees(300)
+    br.driveArcDist(mm(10), mm(-6), -50, then=Stop.NONE)
+    br.driveForDistance(mm(-9))
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
