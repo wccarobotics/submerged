@@ -6,8 +6,8 @@ def Run(br: BaseRobot):
     initial_heading = br.hub.imu.heading()
 
     br.driveForDistance(mm(14), 50)
-    br.curve(mm(4), -45, 40)
-    br.driveForDistance(mm(.5), 10)
+    br.curve(mm(3.5), -45, 40)
+    br.driveForDistance(mm(1), 10)
 
     # rotate boat
     br.moveRightAttachmentMotorForDegrees(500, 30)
@@ -42,7 +42,7 @@ def Run(br: BaseRobot):
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(3), 50)
     br.moveLeftAttachmentMotorForDegrees(-1000, wait=False)
-    br.driveForDistance(mm(12), 50)
+    br.driveForDistance(mm(12), 20)
 
     # return home
     br.driveForDistance(mm(-10), 100)
