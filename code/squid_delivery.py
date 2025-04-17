@@ -27,8 +27,9 @@ def Run(br: BaseRobot):
     # angler fish
     br.turnInPlace(-50)
     br.driveForDistance(mm(5), 40)
-    br.curve(mm(3), -35)
+    br.curve(mm(2.8), -36)
     br.driveForDistance(mm(3.2), 50)
+    br.driveForDistance(mm(-2))
     turn_angle = ((initial_heading - br.hub.imu.heading()-20))
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(10), 50)
