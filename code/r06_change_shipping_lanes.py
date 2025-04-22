@@ -1,5 +1,6 @@
 from base_robot import *
 
+
 def Run(br: BaseRobot):
     # start on right side, facing north, on the third small black notch from the edge of the mat
     # get to boat
@@ -26,10 +27,10 @@ def Run(br: BaseRobot):
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(10.7), 50, accelerationPct=40, then=Stop.NONE)
     br.curve(mm(7), -30, 40)
-    br.driveForDistance(mm(.8), 50)
+    br.driveForDistance(mm(0.8), 50)
 
     # do sonar
-    turn_angle = ((initial_heading - br.hub.imu.heading()))
+    turn_angle = initial_heading - br.hub.imu.heading()
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(4), 20)
     br.moveLeftAttachmentMotorForDegrees(4200, 100)
@@ -37,7 +38,7 @@ def Run(br: BaseRobot):
     # get to sample
     print("Initial heading: " + str(initial_heading))
     print("Current heading: " + str(br.hub.imu.heading()))
-    turn_angle = ((initial_heading - br.hub.imu.heading())) + 85
+    turn_angle = ((initial_heading - br.hub.imu.heading())) + 80
     print("Turn angle: " + str(turn_angle))
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(3), 50)
