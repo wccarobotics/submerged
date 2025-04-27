@@ -43,6 +43,8 @@ func = 0
 while True:
     pressed = br.hub.buttons.pressed()
     stopped = False
+    br.leftDriveMotor.stop()
+    br.rightDriveMotor.stop()
     if mode == 0:
         if Button.RIGHT in pressed:
             run += 1
