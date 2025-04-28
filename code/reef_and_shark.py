@@ -49,12 +49,12 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(-5.6), speedPct=30)
 
     # lower diver
-    br.moveRightAttachmentMotorForDegrees(-75, speedPct=15)
+    br.moveRightAttachmentMotorForDegrees(-69, speedPct=15)
     wait(50)
 
     # deliver diver
-    br.turnInPlace(-18.9)
-    br.driveForDistance(mm(9), speedPct=20)
+    br.turnInPlace(-16)
+    br.driveForDistance(mm(10), speedPct=20)
     wait(60)
     br.moveRightAttachmentMotorForDegrees(-155, 100)
 
