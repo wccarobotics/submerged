@@ -18,7 +18,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(10.5), speedPct=40, then=Stop.NONE)
     br.curve(mm(13), 45, speedPct=45, then=Stop.NONE)
     br.driveForDistance(mm(3), 30, then=Stop.NONE)
-    br.turnInPlace(45, 40)
+    br.turnInPlace(40, 40)
 
     # raise mast and grab chest
     br.driveForDistance(mm(4), 50)
