@@ -419,6 +419,7 @@ class BaseRobot:
         speedPct=DEFAULT_DRIVE_SPEED_PCT,
         gyro=True,
         accelerationPct=DEFAULT_DRIVE_ACCEL_PCT,
+        then=Stop.BRAKE,
     ):
         """
         driveForMillis moves \
@@ -455,6 +456,13 @@ class BaseRobot:
         how much acceleration the robot will have \
         while it is driving \
         the acceleration is on a 1-100 scale \
+        -------------
+        then: this function tells the robot what to do \
+        after the current line of code is done running \
+        our default for then is stop.BRAKE \
+        stop.BRAKE tells the robot that when it stops \
+        to stop and then dont do anything \
+        untill the next line of code \
         """
         speed = RescaleStraightSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
@@ -462,7 +470,7 @@ class BaseRobot:
         self.robot.settings(straight_acceleration=acceleration)
         self.robot.drive(speed, 0)
         wait(millis)
-        self.robot.brake()
+        self.robot.straight(0, then=then)
 
     # TODO driveUntilStalled() needs comments
     def driveUntilStalled(  # TODO add stall parameter
