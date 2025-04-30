@@ -18,28 +18,30 @@ def Run(br: BaseRobot):
     initial_heading = br.hub.imu.heading()
 
     # get to mission model
-    br.driveForDistance(mm(3), 50, then=Stop.NONE)
-    br.curve(mm(5), -56, 25, then=Stop.NONE)
-    br.driveForDistance(mm(22.5), 50, then=Stop.NONE)  # often tweaked
-    br.turnInPlace(47, 50)  # often tweaked
-    br.driveForDistance(mm(5), 50)
+    # br.driveForDistance(mm(1), 50, then=Stop.NONE)
+    # br.curve(mm(5), -56, 25, then=Stop.NONE)
+    # br.driveForDistance(mm(20.5), speedPct=50, then=Stop.NONE)  # often tweaked
+    # br.turnInPlace(40, then=Stop.NONE)
+    # br.driveForDistance(mm(8), speedPct=50, then=Stop.NONE)
+    # br.turnInPlace(-50, then=Stop.NONE)
+    # br.driveForDistance(mm(8), speedPct=50, then=Stop.NONE)
+    # turn_angle = initial_heading - br.hub.imu.heading() - 20
+    # br.curve(0, turn_angle, 30)  # often tweaked
+    # br.driveForMillis(millis=750, then=Stop.NONE)
+    # br.moveRightAttachmentMotorForDegrees(360)
+    # br.turnInPlace(-45, then=Stop.NONE)
+    # br.driveForDistance(mm(-6))
 
-    # angler fish
-    br.turnInPlace(-50)
-    br.driveForDistance(mm(5), 40)
-    br.curve(mm(2.8), -36)
-    br.driveForDistance(mm(3.2), 50)
-    br.driveForDistance(mm(-2))
-
-    # sample
-    turn_angle = initial_heading - br.hub.imu.heading() - 20
-    br.curve(0, turn_angle, 40)  # often tweaked
-    br.driveForDistance(mm(10), 50)
-    br.moveRightAttachmentMotorForDegrees(300)
-
-    # squid delivery
-    br.driveArcDist(mm(11), mm(-3), -50, then=Stop.NONE)  # often tweaked
-    br.driveForDistance(mm(-14))  # often tweaked
+    br.driveForDistance(mm(3))
+    br.turnInPlace(-54)
+    br.driveForDistance(mm(25), speedPct=100, then=Stop.NONE)
+    br.driveForDistance(mm(20), speedPct=50)
+    br.turnInPlace(50)
+    br.driveForMillis(500)
+    br.moveRightAttachmentMotorForDegrees(360)
+    br.driveForDistance(mm(-3))
+    br.turnInPlace(-70)
+    br.driveForDistance(mm(-10))
 
 
 # Don't modify the code below
