@@ -16,7 +16,7 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
     # The Robot must be aligned along the South Wall and againt the Square and Rectagle Aligners. Squid must be facing forward
     initial_heading = br.hub.imu.heading()
-    br.driveForDistance(mm(3))
+    br.driveForDistance(mm(4))
     br.turnInPlace(-52)
     br.driveForDistance(mm(20), speedPct=100)
     turn_angle = initial_heading - br.hub.imu.heading() - 52
@@ -24,7 +24,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(10), speedPct=50)
     turn_angle = initial_heading - br.hub.imu.heading() - 52
     br.turnInPlace(turn_angle, 30)  # often tweaked
-    br.driveForDistance(mm(5))
+    br.driveForDistance(mm(3))
     br.curve(mm(20), -30, speedPct=100, accelerationPct=50)
     turn_angle = initial_heading - br.hub.imu.heading() - 0
     br.turnInPlace(turn_angle, 30)
@@ -43,7 +43,7 @@ def Run(br: BaseRobot):
     turn_angle = initial_heading - br.hub.imu.heading() + 135
     br.turnInPlace(turn_angle, 30)  # often tweaked
     br.driveForDistance(mm(6))
-    br.turnInPlace(-90)
+    br.turnInPlace(-45)
 
 
 # Don't modify the code below
