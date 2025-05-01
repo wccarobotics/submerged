@@ -1,4 +1,5 @@
 from base_robot import *
+from pybricks.tools import StopWatch
 
 # Copy this text into a new mission file. Name it something like
 # r02_unexpected_encounter.  Don't use any spaces or punctuation,
@@ -14,11 +15,12 @@ from base_robot import *
 def Run(br: BaseRobot):
     # start on left side with the square aligner at the corner of the mat. put robot north of the square aligner facing east. have arm all the way up
     # get to mission model and lower atatchment
+    initial_heading = br.hub.imu.heading()
     br.moveRightAttachmentMotorForDegrees(-200, wait=False)
     br.driveForDistance(mm(24), 50, then=Stop.NONE)
     br.curve(mm(8), -45, 40, then=Stop.NONE)
     br.driveForDistance(mm(3), 50)
-    br.moveLeftAttachmentMotorForDegrees(100, 20)
+    br.moveLeftAttachmentMotorForDegrees(120, 20)
 
     # grab
     br.driveForDistance(mm(-10), 100)
@@ -29,10 +31,13 @@ def Run(br: BaseRobot):
     br.turnInPlace(46)
     br.driveForDistance(mm(10.5), 50, then=Stop.NONE)
     br.driveForMillis(1000, speedPct=25)
-    br.driveArcDist(mm(3), mm(1), 40)
+    br.driveArcDist(mm(1), mm(.3), 40)
+    timer = StopWatch()
+    while abs(initial_heading - br.hub.imu.heading()) <= 10 and timer.time() <= 500:
+        pass
 
     # do crabs
-    br.moveRightAttachmentMotorForDegrees(200, 50)
+    br.moveRightAttachmentMotorForDegrees(219, 50)
     wait(50)
     br.driveForDistance(mm(-7.7), 80)
     br.moveRightAttachmentMotorForDegrees(-300)
