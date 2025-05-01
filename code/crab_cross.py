@@ -31,7 +31,7 @@ def Run(br: BaseRobot):
     br.turnInPlace(46)
     br.driveForDistance(mm(10.5), 50, then=Stop.NONE)
     br.driveForMillis(1000, speedPct=25)
-    #br.driveArcDist(mm(1), mm(.3), 40)
+    br.turnInPlace(-10)
     timer = StopWatch()
     while abs(initial_heading - br.hub.imu.heading()) <= 10 and timer.time() <= 500:
         pass
@@ -42,10 +42,12 @@ def Run(br: BaseRobot):
     wait(50)
     br.driveForDistance(mm(-7.7), 80)
     br.moveRightAttachmentMotorForDegrees(-300)
+
+    # get to squid
     br.driveForDistance(mm(-2), 50, then=Stop.NONE)
     br.driveArcDist(mm(-13), mm(6))
     br.driveForDistance(mm(2), then=Stop.NONE)
-    br.driveArcDist(mm(17), mm(22), then=Stop.NONE)
+    br.driveArcDist(mm(17), mm(23), then=Stop.NONE)
     br.turnInPlace(22)
     br.driveForMillis(1000, -75)
     br.driveForDistance(mm(36))
