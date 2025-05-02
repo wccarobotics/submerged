@@ -15,8 +15,7 @@ runs = {
     2: raise_mast.Run,
     3: crab_cross.Run,
     4: r06_change_shipping_lanes.Run,
-    5: send_over_submersible.Run,
-    6: squid_delivery.Run,
+    5: squid_delivery.Run,
 }
 
 utilities = {
@@ -25,6 +24,7 @@ utilities = {
     2: celebrate.Run,
     3: demo_straight.Run,
     4: demo_turn.Run,
+    5: send_over_submersible.Run,
 }
 
 utility_images = {
