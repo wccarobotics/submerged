@@ -33,6 +33,7 @@ utility_images = {
     2: images.STAR,
     3: images.UP_ARROW,
     4: images.LEFT_TURN_ARROW,
+    5: images.SUBMERSIBLE,
 }
 
 br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
@@ -105,8 +106,17 @@ while True:
         br.hub.display.icon(utility_images[func])
         if Button.CENTER in pressed:
             br.hub.light.on(Color.MAGENTA)
-            wait(170)
-            utilities[func](br)
+            wait(500)
+            br.hub.system.set_stop_button([Button.CENTER])
+            try:
+                utilities[func](br)
+            except SystemExit:
+                br.leftDriveMotor.stop()
+                br.rightDriveMotor.stop()
+                br.leftAttachmentMotor.stop()
+                br.rightAttachmentMotor.stop()
+                br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
+                wait(500)
             wait(170)
         br.hub.light.on(Color.CYAN)
         if Button.BLUETOOTH in pressed:
