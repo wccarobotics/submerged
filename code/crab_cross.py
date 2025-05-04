@@ -28,12 +28,15 @@ def Run(br: BaseRobot):
     br.moveLeftAttachmentMotorForDegrees(100, 100)
 
     # get to crabs
-    br.turnInPlace(52)
+    br.turnInPlace(54)
     br.driveForDistance(mm(7.5), 50, then=Stop.NONE)
     br.driveForMillis(500, speedPct=25)
     br.turnInPlace(5)
     timer = StopWatch()
-    while abs(initial_heading - br.hub.imu.heading()) <= 5 and timer.time() <= 500:
+    while (
+        abs(initial_heading - br.hub.imu.heading()) <= 5
+        and timer.time() <= 500
+    ):
         pass
 
     # do crabs
@@ -47,12 +50,13 @@ def Run(br: BaseRobot):
     turn_angle = initial_heading - br.hub.imu.heading() - 0
     print(turn_angle)
     br.turnInPlace(turn_angle, 30)
-    br.driveForDistance(mm(-2), 50, then=Stop.NONE)
+    br.driveForDistance(mm(-3), 50, then=Stop.NONE)
     br.driveArcDist(mm(-16), mm(5), then=Stop.NONE)
-    br.driveArcDist(mm(17), mm(24), then=Stop.NONE)
+    br.driveArcDist(mm(17), mm(6))
+    br.driveForDistance(mm(4))
+    br.driveArcDist(mm(30), mm(18))
     br.turnInPlace(27)
     br.driveForMillis(1000, -75)
-    br.turnInPlace(-32)
     br.driveForDistance(mm(36))
 
 
