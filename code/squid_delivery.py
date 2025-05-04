@@ -20,7 +20,6 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(15), speedPct=100)
     br.driveForDistance(mm(8))
     br.curve(mm(8), 27, speedPct=40)
-    br.curve(mm(18), -30)
     br.driveForDistance(mm(10))
     turn_angle = initial_heading - br.hub.imu.heading() - 0
     print(turn_angle)
