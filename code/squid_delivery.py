@@ -38,8 +38,8 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(-3))
     br.turnInPlace(90)
     br.moveRightAttachmentMotorForDegrees(-360)
-    br.driveForDistance(mm(10))
-    turn_angle = initial_heading - br.hub.imu.heading() + 20
+    br.driveForDistance(mm(5))
+    turn_angle = initial_heading - br.hub.imu.heading() + 10
     br.turnInPlace(turn_angle, 30)
     br.moveRightAttachmentMotorForDegrees(360, speedPct=25, wait=False)
     br.driveForMillis(500)
@@ -50,6 +50,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(6))
     br.turnInPlace(-40)
     br.driveForDistance(mm(-2))
+
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
