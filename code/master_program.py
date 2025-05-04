@@ -25,6 +25,7 @@ utilities = {
     3: demo_straight.Run,
     4: demo_turn.Run,
     5: send_over_submersible.Run,
+    6: squid.Run,
 }
 
 utility_images = {
@@ -34,6 +35,7 @@ utility_images = {
     3: images.UP_ARROW,
     4: images.LEFT_TURN_ARROW,
     5: images.SUBMERSIBLE,
+    6: images.SQUIDWARD,
 }
 
 br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
@@ -115,7 +117,9 @@ while True:
                 br.rightDriveMotor.stop()
                 br.leftAttachmentMotor.stop()
                 br.rightAttachmentMotor.stop()
-                br.hub.system.set_stop_button([Button.CENTER, Button.BLUETOOTH])
+                br.hub.system.set_stop_button(
+                    [Button.CENTER, Button.BLUETOOTH]
+                )
                 wait(500)
             wait(170)
         br.hub.light.on(Color.CYAN)
