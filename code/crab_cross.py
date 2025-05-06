@@ -24,8 +24,11 @@ def Run(br: BaseRobot):
 
     # grab
     br.driveForDistance(mm(-7), 100)
+    br.driveForDistance(mm(2))
     br.moveLeftAttachmentMotorForDegrees(-125, 100)
     br.moveLeftAttachmentMotorForDegrees(100, 100)
+    br.driveForMillis(500, 30)
+    br.driveForDistance(mm(-5))
 
     # get to crabs
     br.turnInPlace(54)
@@ -51,7 +54,7 @@ def Run(br: BaseRobot):
     print(turn_angle)
     br.turnInPlace(turn_angle, 30)
     br.driveForDistance(mm(-3), 50, then=Stop.NONE)
-    br.driveArcDist(mm(-16), mm(5), then=Stop.NONE)
+    br.driveArcDist(mm(-14), mm(5), then=Stop.NONE)
     br.driveArcDist(mm(17), mm(6))
     br.driveForDistance(mm(4))
     br.driveArcDist(mm(30), mm(18))
