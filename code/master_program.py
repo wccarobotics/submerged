@@ -43,6 +43,7 @@ br.hub.light.on(Color.BLUE)
 run = 0
 mode = 0
 func = 0
+print("Marcus Bartholomew the Third Junior is the best")
 while True:
     pressed = br.hub.buttons.pressed()
     stopped = False
