@@ -13,10 +13,10 @@ from base_robot import *
 
 def Run(br: BaseRobot):
     # get to tree
-    br.curve(mm(8.2), -90, then=Stop.NONE)
-    br.driveForDistance(mm(15), 50)
+    br.curve(mm(8.4), -90, then=Stop.NONE)
+    br.driveForDistance(mm(16.5), 50)
     # raise arm
-    br.moveLeftAttachmentMotorForDegrees(-300, 1)
+    br.moveLeftAttachmentMotorForDegrees(-250, 1)
 
 
 # Don't modify the code below
