@@ -15,24 +15,22 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
     # The Robot must be aligned along the South Wall and againt the Square and Rectagle Aligners. Squid must be facing forward
-    
+
     initial_heading = br.hub.imu.heading()
     br.curve(mm(4), -48, then=Stop.NONE)
     br.driveForDistance(mm(22), speedPct=50, then=Stop.NONE)
-    turn_angle = initial_heading - br.hub.imu.heading() - 48
-    br.turnInPlace(turn_angle, 30, then=Stop.NONE)
     br.curve(mm(12), 15, speedPct=30, then=Stop.NONE)
     br.curve(mm(12), -15, speedPct=30, then=Stop.NONE)
-    turn_angle = initial_heading - br.hub.imu.heading() - 50
-    br.turnInPlace(turn_angle, 30, then=Stop.NONE)
-    br.driveForDistance(mm(15), speedPct=50, then=Stop.NONE)
+    br.driveForDistance(mm(5), speedPct=50, then=Stop.NONE)
+    br.driveForDistance(mm(2), speedPct=25, then=Stop.NONE)
+    br.curve(mm(12), -30, speedPct=50, then=Stop.NONE)
     turn_angle = initial_heading - br.hub.imu.heading()
-    br.turnInPlace(turn_angle, 30, then=Stop.NONE)
+    br.turnInPlace(turn_angle, 25, then=Stop.NONE)
     br.driveForDistance(mm(3.5), speedPct=30, then=Stop.NONE)
     br.moveRightAttachmentMotorForDegrees(360)
-    br.driveForDistance(mm(-3))
+    br.driveForDistance(mm(-3,))
     turn_angle = initial_heading - br.hub.imu.heading() + 20
-    br.turnInPlace(turn_angle, 30, then=Stop.NONE)
+    br.turnInPlace(turn_angle, 10, then=Stop.NONE)
     br.moveRightAttachmentMotorForDegrees(-360)
     br.driveForMillis(500)
     br.turnInPlace(-97)
@@ -40,6 +38,12 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(360)
     br.waitForMillis(2000)
     br.turnInPlace(150)
+    br.driveForMillis(500)
+    br.turnInPlace(-97)
+    br.driveForMillis(100)
+    br.curve(mm(2), speedPct=50, then=Stop.NONE)
+    
+
     # br.moveRightAttachmentMotorForDegrees(360)
     # br.waitForMillis(3000)
     # br.curve(mm(4), -55, then=Stop.NONE)
