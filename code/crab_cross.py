@@ -18,23 +18,19 @@ def Run(br: BaseRobot):
     initial_heading = br.hub.imu.heading()
     br.moveRightAttachmentMotorForDegrees(-200, wait=False)
     br.driveForDistance(mm(22), 50, then=Stop.NONE)
+    br.moveLeftAttachmentMotorForDegrees(160, 20, wait=False)
     br.curve(mm(8), -45, 40, then=Stop.NONE)
-    br.driveForDistance(mm(3), 50)
-    br.moveLeftAttachmentMotorForDegrees(160, 20)
+    br.driveForDistance(mm(7), 50)
 
     # grab
-    br.driveForDistance(mm(-7), 100)
-    br.driveForDistance(mm(2))
-    br.moveLeftAttachmentMotorForDegrees(-125, 100)
-    br.moveLeftAttachmentMotorForDegrees(100, 100)
-    br.driveForMillis(500, 30)
-    br.driveForDistance(mm(-5))
+    br.moveLeftAttachmentMotorForDegrees(-100, wait=False)
+    br.driveForDistance(mm(-9), 100)
 
     # get to crabs
-    br.turnInPlace(54)
+    br.turnInPlace(55)
     br.driveForDistance(mm(7.5), 50, then=Stop.NONE)
     br.driveForMillis(500, speedPct=25)
-    br.turnInPlace(5)
+    br.turnInPlace(10)
     timer = StopWatch()
     while (
         abs(initial_heading - br.hub.imu.heading()) <= 5
@@ -43,10 +39,9 @@ def Run(br: BaseRobot):
         pass
 
     # do crabs
-    br.moveLeftAttachmentMotorForDegrees(-150, wait=False)
     br.moveRightAttachmentMotorForDegrees(219, 50)
     wait(50)
-    br.driveForDistance(mm(-7.7), 80)
+    br.driveForDistance(mm(-8.5), 80)
     br.moveRightAttachmentMotorForDegrees(-300)
 
     # get to squid
@@ -55,11 +50,16 @@ def Run(br: BaseRobot):
     br.turnInPlace(turn_angle, 30)
     br.driveForDistance(mm(-3), 50, then=Stop.NONE)
     br.driveArcDist(mm(-14), mm(5), then=Stop.NONE)
-    br.driveArcDist(mm(17), mm(6))
-    br.driveForDistance(mm(4))
+    br.driveArcDist(mm(17), mm(6), then=Stop.NONE)
+    br.driveForDistance(mm(4), then=Stop.NONE)
     br.driveArcDist(mm(30), mm(18))
     br.turnInPlace(27)
     br.driveForMillis(1000, -75)
+    print("Initial heading: " + str(initial_heading))
+    print("Current heading: " + str(br.hub.imu.heading()))
+    turn_angle = ((initial_heading - br.hub.imu.heading())) + 45
+    print("Turn angle: " + str(turn_angle))
+    br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(36))
 
 
