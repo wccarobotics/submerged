@@ -16,7 +16,7 @@ def Run(br: BaseRobot):
     br.moveLeftAttachmentMotorForDegrees(210, .5, wait=False)
     br.driveForDistance(mm(26.5), 50)
     # raise arm
-    br.moveLeftAttachmentMotorForDegrees(-300, speedPct=.000000000001)
+    br.moveLeftAttachmentMotorForDegrees(-330, speedPct=.5)
     br.driveForDistance(mm(-24), speedPct=100)
 
 
