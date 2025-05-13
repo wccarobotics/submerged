@@ -20,14 +20,21 @@ def Run(br: BaseRobot):
     br.driveArcDist(mm(35.4), mm(26), 50, then=Stop.NONE)
     br.driveForDistance(mm(5.8), speedPct=45)
     br.moveRightAttachmentMotorForDegrees(200, 20, wait=False)
-    # br.turnInPlace(-135, -30)
-    # br.moveRightAttachmentMotorForDegrees(-230, 20)
+    br.turnInPlace(-135, -30)
+
+    # gyro to start turn for MOAR RELIABILITY!
+    br.moveRightAttachmentMotorForDegrees(-230, 20)
+    print("Initial heading: " + str(initial_heading))
+    print("Current heading: " + str(br.hub.imu.heading()))
+    turn_angle = ((initial_heading - br.hub.imu.heading())) - 92
+    print("Turn angle: " + str(turn_angle))
+    br.curve(0, turn_angle, 40)
 
     # raise coral buds
-    br.driveForDistance(mm(5.5), speedPct=20)
+    br.driveForDistance(mm(6), speedPct=20)
 
     # grab diver
-    br.moveRightAttachmentMotorForDegrees(190, speedPct=20)
+    br.moveRightAttachmentMotorForDegrees(210, speedPct=20)
     wait(500)
 
     # visit Marcus
