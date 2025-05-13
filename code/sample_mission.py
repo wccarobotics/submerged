@@ -16,8 +16,17 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
+    initial_heading = br.hub.imu.heading()
+
     br.driveForDistance(distance=1000)  # Go forward
     br.driveForDistance(distance=-1000)  # Go back
+
+    # relative to start gyro turn
+    print("Initial heading: " + str(initial_heading))
+    print("Current heading: " + str(br.hub.imu.heading()))
+    turn_angle = ((initial_heading - br.hub.imu.heading())) + 0
+    print("Turn angle: " + str(turn_angle))
+    br.curve(0, turn_angle, 40)
 
 
 # Don't modify the code below
