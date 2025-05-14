@@ -25,7 +25,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(2), speedPct=25, then=Stop.NONE)
     br.curve(mm(12), -30, speedPct=50, then=Stop.NONE)
     turn_angle = initial_heading - br.hub.imu.heading()
-    br.turnInPlace(turn_angle, 25, then=Stop.NONE)
+    br.turnInPlace(turn_angle, 22, then=Stop.NONE)
     br.driveForDistance(mm(3.5), speedPct=30, then=Stop.NONE)
     br.moveRightAttachmentMotorForDegrees(360)
     br.driveForDistance(mm(-3,))
@@ -33,8 +33,8 @@ def Run(br: BaseRobot):
     br.turnInPlace(turn_angle, 10, then=Stop.NONE)
     br.moveRightAttachmentMotorForDegrees(-360)
     br.driveForMillis(500)
-    br.turnInPlace(-97)
-    br.driveForMillis(500)
+    br.turnInPlace(-105)
+    br.driveForMillis(750)
     br.moveRightAttachmentMotorForDegrees(360)
     br.waitForMillis(2000)
     br.turnInPlace(150)
@@ -42,6 +42,7 @@ def Run(br: BaseRobot):
     br.turnInPlace(-97)
     br.driveForMillis(100)
     br.curve(mm(2), speedPct=50, then=Stop.NONE)
+    
     
 
     # br.moveRightAttachmentMotorForDegrees(360)
