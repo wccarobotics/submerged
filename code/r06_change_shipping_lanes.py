@@ -27,23 +27,24 @@ def Run(br: BaseRobot):
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(10.7), 50, accelerationPct=40, then=Stop.NONE)
     br.curve(mm(7), -30, 40)
-    br.driveForDistance(mm(0.8), 50)
+    # br.driveForDistance(mm(-0.8), 50)
 
     # do sonar
     turn_angle = initial_heading - br.hub.imu.heading()
     br.curve(0, turn_angle, 40)
-    br.driveForDistance(mm(4), 20)
-    br.moveLeftAttachmentMotorForDegrees(4200, 100)
+    br.driveForDistance(mm(4.1), 20)
+    br.moveLeftAttachmentMotorForDegrees(4300, 100)
 
     # get to sample
     print("Initial heading: " + str(initial_heading))
     print("Current heading: " + str(br.hub.imu.heading()))
-    turn_angle = ((initial_heading - br.hub.imu.heading())) + 80
+    turn_angle = ((initial_heading - br.hub.imu.heading())) + 88
     print("Turn angle: " + str(turn_angle))
     br.curve(0, turn_angle, 40)
-    br.driveForDistance(mm(3), 50)
+    br.driveForDistance(mm(3), 50, then=Stop.NONE)
     br.moveLeftAttachmentMotorForDegrees(-1000, wait=False)
-    br.driveForDistance(mm(12), 20)
+    br.driveForDistance(mm(5), 20, then= Stop.NONE)
+    br.driveForMillis(500, 80)
 
     # return home
     br.driveForDistance(mm(-10), 100)
