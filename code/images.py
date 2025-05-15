@@ -188,3 +188,14 @@ SQUIDWARD = Matrix(
         [100, 0, 100, 0, 100],
     ]
 )
+
+# coral tree hanging indicator
+CORAL_TREE = Matrix(
+    [
+        [0, 0, 0, 0, 100],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+    ]
+)

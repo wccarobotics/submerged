@@ -1,4 +1,5 @@
 from base_robot import *
+import images
 
 # Copy this text into a new mission file. Name it something like
 # r02_unexpected_encounter.  Don't use any spaces or punctuation,
@@ -12,12 +13,33 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    # get to tree
-    br.moveLeftAttachmentMotorForDegrees(210, .5, wait=False)
-    br.driveForDistance(mm(26.5), 50)
-    # raise arm
-    br.moveLeftAttachmentMotorForDegrees(-330, speedPct=.5)
-    br.driveForDistance(mm(-24), speedPct=100)
+    done = False
+    # grab tree
+    br.driveForDistance(mm(14.7), 50)
+    br.driveForMillis(1500, -100)
+
+    # waits until user imput
+    br.hub.display.icon(images.CORAL_TREE)
+    while not done:
+        pressed = br.hub.buttons.pressed()
+        if Button.BLUETOOTH in pressed:
+            done = True
+    br.hub.display.animate(
+                [
+                    images.RUNNING_1,
+                    images.RUNNING_2,
+                    images.RUNNING_3,
+                    images.RUNNING_4,
+                    images.RUNNING_5,
+                    images.RUNNING_6,
+                    images.RUNNING_7,
+                ],
+                300,
+            )
+
+    # deliver tree
+    br.driveArcDist(mm(250), mm(18), 30)
+    br.driveForMillis(3000, -50)
 
 
 # Don't modify the code below
