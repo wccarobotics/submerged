@@ -24,13 +24,15 @@ def Run(br: BaseRobot):
 
     # grab
     br.moveLeftAttachmentMotorForDegrees(-100, wait=False)
-    br.driveForDistance(mm(-9), 100)
+    br.driveForDistance(mm(-8.5), 100)
 
     # get to crabs
-    br.turnInPlace(55)
+    turn_angle = initial_heading - br.hub.imu.heading() - 10
+    print(turn_angle)
+    br.turnInPlace(turn_angle, 30)
     br.driveForDistance(mm(7.5), 50, then=Stop.NONE)
     br.driveForMillis(500, speedPct=25)
-    br.turnInPlace(10)
+    br.turnInPlace(15)
     timer = StopWatch()
     while (
         abs(initial_heading - br.hub.imu.heading()) <= 5
@@ -41,7 +43,7 @@ def Run(br: BaseRobot):
     # do crabs
     br.moveRightAttachmentMotorForDegrees(219, 50)
     wait(50)
-    br.driveForDistance(mm(-8.5), 80)
+    br.driveForDistance(mm(-8.8), 80)
     br.moveRightAttachmentMotorForDegrees(-300)
 
     # get to squid
