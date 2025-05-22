@@ -38,8 +38,8 @@ def Run(br: BaseRobot):
             )
 
     # deliver tree
-    br.driveArcDist(mm(250), mm(18), 30)
-    br.driveForMillis(3000, -50)
+    br.driveForDistance(mm(18), 30, then=Stop.NONE)
+    br.driveForMillis(3000, -50, accelerationPct=100)
 
 
 # Don't modify the code below
