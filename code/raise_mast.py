@@ -14,21 +14,22 @@ from base_robot import *
 def Run(br: BaseRobot):
     # The Robot must be aligned on the South Wall against the Square Aligner
 
+    initial_heading = br.hub.imu.heading()
+
     # get aligned with mission model
-    br.driveForDistance(mm(10.5), speedPct=40, then=Stop.NONE)
+    br.driveForDistance(mm(10.4), speedPct=40, then=Stop.NONE)
     br.curve(mm(13), 45, speedPct=45, then=Stop.NONE)
     br.driveForDistance(mm(3), 30, then=Stop.NONE)
     br.turnInPlace(40, 40)
 
     # raise mast and grab chest
-    br.driveForDistance(mm(4), 50)
+    br.driveForDistance(mm(2), 50)
     br.driveForMillis(1575, speedPct=9)
-    br.driveForDistance(mm(-10), speedPct=-40, then=Stop.NONE)
+    br.driveForDistance(mm(-8), speedPct=-40, then=Stop.NONE)
 
     # get home
-    br.turnInPlace(85, 100, then=Stop.NONE)
-    br.curve(330, 25, speedPct=100, then=Stop.NONE)
-    br.driveForMillis(500, speedPct=100)
+    br.turnInPlace(-85, 100, then=Stop.NONE)
+    br.driveForMillis(1000, speedPct=-100)
 
 
 # Don't modify the code below
