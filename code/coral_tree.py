@@ -15,7 +15,7 @@ import images
 def Run(br: BaseRobot):
     done = False
     # grab tree
-    br.driveForDistance(mm(14.7), 50)
+    br.driveForDistance(mm(16), 50)
     br.driveForMillis(1500, -100)
 
     # waits until user imput
@@ -25,17 +25,17 @@ def Run(br: BaseRobot):
         if Button.BLUETOOTH in pressed:
             done = True
     br.hub.display.animate(
-                [
-                    images.RUNNING_1,
-                    images.RUNNING_2,
-                    images.RUNNING_3,
-                    images.RUNNING_4,
-                    images.RUNNING_5,
-                    images.RUNNING_6,
-                    images.RUNNING_7,
-                ],
-                300,
-            )
+        [
+            images.RUNNING_1,
+            images.RUNNING_2,
+            images.RUNNING_3,
+            images.RUNNING_4,
+            images.RUNNING_5,
+            images.RUNNING_6,
+            images.RUNNING_7,
+        ],
+        300,
+    )
 
     # deliver tree
     br.driveForDistance(mm(18), 30, then=Stop.NONE)
