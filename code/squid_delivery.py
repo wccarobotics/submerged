@@ -19,71 +19,58 @@ def Run(br: BaseRobot):
     initial_heading = br.hub.imu.heading()
     br.curve(mm(4), -48, then=Stop.NONE)
     br.driveForDistance(mm(22), speedPct=50, then=Stop.NONE)
+
+    # S Curve
     br.curve(mm(12), 15, speedPct=30, then=Stop.NONE)
+    br.driveForDistance(mm(1.5), then=Stop.NONE)
     br.curve(mm(12), -10, speedPct=30, then=Stop.NONE)
+
+    # Drive straight past angler fish lever
     br.driveForDistance(mm(4), speedPct=50, then=Stop.NONE)
     br.driveForDistance(mm(2), speedPct=25, then=Stop.NONE)
-    br.curve(mm(12), -30, speedPct=50, then=Stop.NONE)
+
+    # Curve left to make sure we trigger angler fish
+    br.curve(mm(12), -15, speedPct=50, then=Stop.NONE)
+    br.driveForDistance(
+        mm(
+            5.000000000000000000000000000000000000000000000000000000000000000000000000000000
+        ),
+        speedPct=25,
+    )
+
     turn_angle = initial_heading - br.hub.imu.heading()
     br.turnInPlace(turn_angle, 22, then=Stop.NONE)
     br.driveForDistance(mm(3.5), speedPct=30, then=Stop.NONE)
-    br.moveRightAttachmentMotorForDegrees(360)
-    br.driveForDistance(
-        mm(
-            -3,
-        )
-    )
-    turn_angle = initial_heading - br.hub.imu.heading() + 20
-    br.turnInPlace(turn_angle, 20, then=Stop.NONE)
-    br.moveRightAttachmentMotorForDegrees(-360)
-    br.driveForMillis(500)
-    br.turnInPlace(-105)
-    br.driveForMillis(750)
-    br.moveRightAttachmentMotorForDegrees(360)
-    br.waitForMillis(2000)
-    br.moveRightAttachmentMotorForDegrees(-360)
-    br.turnInPlace(150)
-    br.driveForMillis(400)
-    br.turnInPlace(-80)
-    br.driveForMillis(100)
-    br.curve(mm(2), speedPct=50, then=Stop.NONE)
 
-    # br.moveRightAttachmentMotorForDegrees(360)
-    # br.waitForMillis(3000)
-    # br.curve(mm(4), -55, then=Stop.NONE)
-    # br.driveForDistance(mm(15), speedPct=100, then=Stop.NONE)
-    # turn_angle = initial_heading - br.hub.imu.heading() - 55
-    # br.turnInPlace(turn_angle, 30, then=Stop.NONE)
-    # br.driveForDistance(mm(5), then=Stop.NONE)
-    # turn_angle = initial_heading - br.hub.imu.heading() - 55
-    # br.turnInPlace(turn_angle, 30, then=Stop.NONE)
-    # br.curve(mm(8), 27, speedPct=40, then=Stop.NONE)
-    # br.driveForDistance(mm(1), then=Stop.NONE)
-    # br.curve(mm(18), -30, then=Stop.NONE)
-    # turn_angle = initial_heading - br.hub.imu.heading() - 55
-    # br.turnInPlace(turn_angle, 30, then=Stop.NONE)
-    # br.curve(mm(12), -10, then=Stop.NONE)
-    # br.driveForDistance(mm(9), then=Stop.NONE)
-    # turn_angle = initial_heading - br.hub.imu.heading() - 0
-    # print(turn_angle)
-    # br.turnInPlace(turn_angle, 30, then=Stop.NONE)
-    # br.driveForMillis(1000, speedPct=20, then=Stop.NONE)
-    # br.moveRightAttachmentMotorForDegrees(360)
-    # br.driveForDistance(mm(-3))
-    # br.turnInPlace(90)
-    # br.moveRightAttachmentMotorForDegrees(-360)
-    # br.driveForDistance(mm(5))
-    # turn_angle = initial_heading - br.hub.imu.heading() + 10
-    # br.turnInPlace(turn_angle, 30)
-    # br.moveRightAttachmentMotorForDegrees(360, speedPct=25, wait=False)
-    # br.driveForMillis(500)
-    # wait(2000)
-    # br.driveForDistance(mm(-3))
-    # turn_angle = initial_heading - br.hub.imu.heading() + 135
-    # br.turnInPlace(turn_angle, 30)
-    # br.driveForDistance(mm(6))
-    # br.turnInPlace(-40)
-    # br.driveForDistance(mm(-2))
+    # Lift seabed sample and back up
+    br.moveRightAttachmentMotorForDegrees(360)
+    br.driveForDistance(mm(-5))
+
+    turn_angle = initial_heading - br.hub.imu.heading() + 90
+    br.turnInPlace(turn_angle, 20)
+    br.moveRightAttachmentMotorForDegrees(-360, wait=False)
+
+    # Remember to ALWAYS DRIVE FOR DISTANCE (except for when running into walls) also remeber Link would win vs Sonic
+    br.driveForDistance(mm(16), speedPct=50, then=Stop.NONE)
+    br.turnInPlace(-135)
+
+
+    # Drive forward into submersible mission, raise attachment
+    br.driveUntilStalled(100)
+    br.moveRightAttachmentMotorForDegrees(360)
+
+    # Raise attachment slightly
+    br.moveRightAttachmentMotorForDegrees(30)
+    
+    br.moveRightAttachmentMotorForDegrees(-360)
+
+    br.driveForDistance(mm(-6))
+    br.turnInPlace(100)
+    br.driveForDistance(mm(-9))
+
+    # br.turnInPlace(-80)
+    # br.driveForMillis(100)
+    # br.curve(mm(2), speedPct=50, then=Stop.NONE)
 
 
 # Don't modify the code below
