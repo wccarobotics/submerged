@@ -27,7 +27,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(-8.5), 100)
 
     # get to crabs
-    turn_angle = initial_heading - br.hub.imu.heading() - 10
+    turn_angle = initial_heading - br.hub.imu.heading() - 5
     print(turn_angle)
     br.turnInPlace(turn_angle, 30)
     br.driveForDistance(mm(7.5), 50, then=Stop.NONE)
@@ -43,7 +43,7 @@ def Run(br: BaseRobot):
     # do crabs
     br.moveRightAttachmentMotorForDegrees(219, 50)
     wait(50)
-    br.driveForDistance(mm(-8.8), 80)
+    br.driveForDistance(mm(-8.2), 30)
     br.moveRightAttachmentMotorForDegrees(-300)
 
     # get to squid
