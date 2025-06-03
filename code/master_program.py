@@ -11,8 +11,8 @@ pressed = []
 
 runs = {
     0: clean_and_reef.Run,
-    1: reef_and_shark.Run,
-    2: coral_tree.Run,
+    1: coral_tree.Run,
+    2: reef_and_shark.Run,
     3: raise_mast.Run,
     4: crab_cross.Run,
     5: r06_change_shipping_lanes.Run,
