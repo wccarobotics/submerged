@@ -113,7 +113,6 @@ while True:
         if Button.CENTER in pressed:
             br.hub.light.on(Color.MAGENTA)
             wait(500)
-            br.hub.system.set_stop_button([Button.CENTER])
             try:
                 utilities[func](br)
             except SystemExit:
