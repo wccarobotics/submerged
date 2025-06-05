@@ -23,7 +23,9 @@ def Run(br: BaseRobot):
     br.turnInPlace(-135, -30)
 
     # gyro to start turn for MOAR RELIABILITY!
-    br.moveRightAttachmentMotorForDegrees(-230, 20) # wait=False should be at the end of this line of code
+    br.moveRightAttachmentMotorForDegrees(
+        -230, 20
+    )  # wait=False should be at the end of this line of code
     print("Initial heading: " + str(initial_heading))
     print("Current heading: " + str(br.hub.imu.heading()))
     turn_angle = ((initial_heading - br.hub.imu.heading())) - 92
@@ -34,7 +36,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(3), speedPct=20, then=Stop.NONE)
     br.driveForDistance(mm(3), speedPct=20, wait=False)
     br.moveRightAttachmentMotorForDegrees(210, speedPct=20)
-    #wait(500)
+    # wait(500)
 
     # visit Marcus
     br.driveForDistance(mm(-4), speedPct=50, accelerationPct=30)
@@ -54,8 +56,7 @@ def Run(br: BaseRobot):
     br.waitForMillis(500)
     br.driveForDistance(mm(1), speedPct=50)
     br.moveRightAttachmentMotorForDegrees(-100, speedPct=15)
-
-    
+    br.driveForDistance(mm(-2), 100)
 
     # get home
     turn_angle = ((initial_heading - br.hub.imu.heading())) + 35
