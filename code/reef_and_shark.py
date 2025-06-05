@@ -18,58 +18,50 @@ def Run(br: BaseRobot):
     # get to coral and diver
     initial_heading = br.hub.imu.heading()
     br.driveArcDist(mm(35.4), mm(26), 50, then=Stop.NONE)
-    br.driveForDistance(mm(5.8), speedPct=45)
+    br.driveForDistance(mm(5.8), speedPct=45, then=Stop.NONE)
     br.moveRightAttachmentMotorForDegrees(200, 20, wait=False)
     br.turnInPlace(-135, -30)
 
     # gyro to start turn for MOAR RELIABILITY!
-    br.moveRightAttachmentMotorForDegrees(-230, 20)
+    br.moveRightAttachmentMotorForDegrees(-230, 20) # wait=False should be at the end of this line of code
     print("Initial heading: " + str(initial_heading))
     print("Current heading: " + str(br.hub.imu.heading()))
     turn_angle = ((initial_heading - br.hub.imu.heading())) - 92
     print("Turn angle: " + str(turn_angle))
     br.curve(0, turn_angle, 40)
 
-    # raise coral buds
-    br.driveForDistance(mm(6), speedPct=20)
-
-    # grab diver
+    # raise coral buds & grab diver
+    br.driveForDistance(mm(3), speedPct=20, then=Stop.NONE)
+    br.driveForDistance(mm(3), speedPct=20, wait=False)
     br.moveRightAttachmentMotorForDegrees(210, speedPct=20)
-    wait(500)
+    #wait(500)
 
     # visit Marcus
     br.driveForDistance(mm(-4), speedPct=50, accelerationPct=30)
-    wait(500)
     br.turnInPlace(35, then=Stop.NONE)
     br.driveForDistance(mm(8.7), speedPct=50)
-    wait(40)
 
     # say good bye to marcus
-    br.driveForDistance(mm(-9.2), speedPct=40, accelerationPct=30)
-
-    # back up
-    br.turnInPlace(35, 40)
-    br.driveForDistance(-mm(2), 40)
+    br.driveForDistance(mm(-10), speedPct=40, accelerationPct=30)
 
     # align with coral reef
-    br.turnInPlace(30, 20)
-    br.driveForMillis(60, 50, then=Stop.NONE)
-    br.driveForDistance(mm(-5.6), speedPct=30)
-
-    # lower diver
-    br.moveRightAttachmentMotorForDegrees(-55, speedPct=15)
-    wait(50)
+    turn_angle = ((initial_heading - br.hub.imu.heading())) - 0
+    print("Turn angle: " + str(turn_angle))
+    br.curve(0, turn_angle, 40)
 
     # deliver diver
-    br.turnInPlace(-17)
-    br.driveForDistance(mm(10), speedPct=20)
-    wait(60)
-    br.moveRightAttachmentMotorForDegrees(-155, 100)
+    br.moveRightAttachmentMotorForDegrees(-90, speedPct=15)
+    br.waitForMillis(500)
+    br.driveForDistance(mm(1), speedPct=50)
+    br.moveRightAttachmentMotorForDegrees(-100, speedPct=15)
+
+    
 
     # get home
-    br.driveForDistance(mm(-2), speedPct=10, then=Stop.NONE)
-    br.driveArcDist(mm(-20), mm(-10), 30, accelPct=30, then=Stop.NONE)
-    br.driveForDistance(mm(-24), 100)
+    turn_angle = ((initial_heading - br.hub.imu.heading())) + 35
+    print("Turn angle: " + str(turn_angle))
+    br.curve(0, turn_angle, 40)
+    br.driveForMillis(3000, speedPct=-100)
 
 
 # It runs the Run method if this file is run directly (not from the master program)
