@@ -16,6 +16,11 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
     # The Robot must be aligned along the South Wall and againt the Square and Rectagle Aligners. Squid must be facing forward
 
+    # motivation
+    print(
+        "If this code sucks call yourself as you made it not work and it's your problem (unless your name is Lucas then its Caleb and Joeseph's fault)."
+    )
+
     initial_heading = br.hub.imu.heading()
     br.curve(mm(4), -48, then=Stop.NONE)
     br.driveForDistance(mm(22), speedPct=50, then=Stop.NONE)
@@ -30,13 +35,10 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(2), speedPct=25, then=Stop.NONE)
 
     # Curve left to make sure we trigger angler fish
-    br.curve(mm(12), -15, speedPct=50, then=Stop.NONE)
+    br.curve(mm(12), -20, speedPct=50, then=Stop.NONE)
     br.driveForDistance(
-        mm(
-            5.000000000000000000000000000000000000000000000000000000000000000000000000000000
-        ),
-        speedPct=25,
-    )
+        mm(5.0000), speedPct=25
+    )  # Add a zero after the five each time it fails
 
     turn_angle = initial_heading - br.hub.imu.heading()
     br.turnInPlace(turn_angle, 22, then=Stop.NONE)
@@ -50,23 +52,24 @@ def Run(br: BaseRobot):
     br.turnInPlace(turn_angle, 20)
     br.moveRightAttachmentMotorForDegrees(-360, wait=False)
 
-    # Remember to ALWAYS DRIVE FOR DISTANCE (except for when running into walls) also remeber Link would win vs Sonic
+    # Remember to ALWAYS DRIVE FOR DISTANCE (except for when running into walls) also remember Link would win vs Sonic
     br.driveForDistance(mm(16), speedPct=50, then=Stop.NONE)
     br.turnInPlace(-135)
 
-
     # Drive forward into submersible mission, raise attachment
     br.driveUntilStalled(100)
+    br.driveForDistance(mm(-0.4))
+    br.turnInPlace(20)
     br.moveRightAttachmentMotorForDegrees(360)
 
     # Raise attachment slightly
     br.moveRightAttachmentMotorForDegrees(30)
-    
+
     br.moveRightAttachmentMotorForDegrees(-360)
 
     br.driveForDistance(mm(-6))
     br.turnInPlace(100)
-    br.driveForDistance(mm(-9))
+    br.driveForDistance(mm(-8))
 
     # br.turnInPlace(-80)
     # br.driveForMillis(100)
