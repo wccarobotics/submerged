@@ -35,9 +35,9 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(2), speedPct=25, then=Stop.NONE)
 
     # Curve left to make sure we trigger angler fish
-    br.curve(mm(12), -20, speedPct=50, then=Stop.NONE)
+    br.curve(mm(12), -25, speedPct=50, then=Stop.NONE)
     br.driveForDistance(
-        mm(5.0000), speedPct=25
+        mm(5.00000), speedPct=25
     )  # Add a zero after the five each time it fails
 
     turn_angle = initial_heading - br.hub.imu.heading()
