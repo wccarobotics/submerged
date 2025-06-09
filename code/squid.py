@@ -15,10 +15,10 @@ def Run(br: BaseRobot):
     # The Robot must be lined with the 45 degree aligner on the notch
 
     # release squid
-    br.driveForDistance(mm(24))
+    br.driveForMillis(2000, 100)
 
     # bring squid home
-    br.driveForDistance(mm(-24))
+    br.driveForMillis(3000, -100)
 
 
 # Don't modify the code below
