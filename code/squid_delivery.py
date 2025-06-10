@@ -18,7 +18,7 @@ def Run(br: BaseRobot):
 
     # motivation
     print(
-        "If this code sucks call yourself as you made it not work and it's your problem (unless your name is Lucas then its Caleb and Joeseph's fault)."
+        "If this code sucks call yourself as you made it not work and it's your problem (unless your name is Lucas then it's Caleb and Joeseph's fault)."
     )
 
     initial_heading = br.hub.imu.heading()
@@ -26,18 +26,17 @@ def Run(br: BaseRobot):
     br.driveForDistance(mm(22), speedPct=50, then=Stop.NONE)
 
     # S Curve
-    br.curve(mm(12), 15, speedPct=30, then=Stop.NONE)
-    br.driveForDistance(mm(1.5), then=Stop.NONE)
-    br.curve(mm(12), -10, speedPct=30, then=Stop.NONE)
+    br.curve(mm(12), 12, speedPct=30, then=Stop.NONE)
+    br.driveForDistance(mm(1.5), 30, then=Stop.NONE)
+    br.curve(mm(11), -20, speedPct=30, then=Stop.NONE)
 
     # Drive straight past angler fish lever
-    br.driveForDistance(mm(4), speedPct=50, then=Stop.NONE)
-    br.driveForDistance(mm(2), speedPct=25, then=Stop.NONE)
+    br.driveForDistance(mm(4), speedPct=25, then=Stop.NONE)
 
     # Curve left to make sure we trigger angler fish
-    br.curve(mm(12), -25, speedPct=50, then=Stop.NONE)
+    br.curve(mm(12), -20, speedPct=50, then=Stop.NONE)
     br.driveForDistance(
-        mm(5.00000), speedPct=25
+        mm(5.00000000000000000000000), speedPct=25
     )  # Add a zero after the five each time it fails
 
     turn_angle = initial_heading - br.hub.imu.heading()
@@ -53,28 +52,24 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(-360, wait=False)
 
     # Remember to ALWAYS DRIVE FOR DISTANCE (except for when running into walls) also remember Link would win vs Sonic
-    br.driveForDistance(mm(16), speedPct=50, then=Stop.NONE)
+    br.driveForDistance(mm(17), speedPct=50, then=Stop.NONE)
     br.turnInPlace(-135)
 
     # Drive forward into submersible mission, raise attachment
-    br.driveUntilStalled(100)
-    br.driveForDistance(mm(-0.4))
-    br.turnInPlace(20)
+    br.driveForMillis(800, 80)
+    br.driveForDistance(mm(-0.3))
+    br.turnInPlace(10)
     br.moveRightAttachmentMotorForDegrees(360)
 
     # Raise attachment slightly
     br.moveRightAttachmentMotorForDegrees(30)
+    wait(500)
 
     br.moveRightAttachmentMotorForDegrees(-360)
 
     br.driveForDistance(mm(-6))
-    br.turnInPlace(100)
-    br.driveForDistance(mm(-8))
-
-    # br.turnInPlace(-80)
-    # br.driveForMillis(100)
-    # br.curve(mm(2), speedPct=50, then=Stop.NONE)
-
+    br.turnInPlace(90)
+    br.driveForDistance(mm(-10))
 
 # Don't modify the code below
 # It runs the Run method if this file is run directly (not from the master program)
