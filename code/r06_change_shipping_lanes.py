@@ -1,4 +1,5 @@
 from base_robot import *
+from pybricks.tools import StopWatch
 
 
 def Run(br: BaseRobot):
@@ -6,7 +7,7 @@ def Run(br: BaseRobot):
     # get to boat
     initial_heading = br.hub.imu.heading()
 
-    br.driveForDistance(mm(14), 50)
+    br.driveForDistance(mm(14.5), 50)
     br.curve(mm(3.5), -45, 40)
     br.driveForDistance(mm(.5), 10)
 
@@ -20,29 +21,33 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(-250, 100)
 
     # get to sonar
-    print("Initial heading: " + str(initial_heading))
-    print("Current heading: " + str(br.hub.imu.heading()))
     turn_angle = ((initial_heading - br.hub.imu.heading())) - 50
-    print("Turn angle: " + str(turn_angle))
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(10.7), 50, accelerationPct=40, then=Stop.NONE)
     br.curve(mm(7), -30, 40)
-    br.driveForDistance(mm(0.4), 50)
+    br.driveForDistance(mm(.8), 50)
 
     # do sonar
     turn_angle = initial_heading - br.hub.imu.heading()
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(5.2), 10)
-    turn_angle = initial_heading - br.hub.imu.heading()
-    br.curve(0, turn_angle, 40)
+    br.driveForDistance(1, 10, then=Stop.NONE)
+    timer = StopWatch()
+    while (
+        abs(initial_heading - br.hub.imu.heading()) <= 5
+        and timer.time() <= 500
+    ):
+        pass
+    br.driveForDistance(0)
+    turn_angle = initial_heading - br.hub.imu.heading() + 10
+    print(turn_angle)
+    br.curve(mm(-4), -turn_angle, 40)
     br.moveLeftAttachmentMotorForMillis(5500, 100)
+    br.moveLeftAttachmentMotorForMillis(200, -100)
 
     # get to sample
-    br.driveForDistance(mm(-1))
-    print("Initial heading: " + str(initial_heading))
-    print("Current heading: " + str(br.hub.imu.heading()))
+    br.driveForDistance(mm(-1.5))
     turn_angle = ((initial_heading - br.hub.imu.heading())) + 88
-    print("Turn angle: " + str(turn_angle))
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(3), 50, then=Stop.NONE)
     br.moveLeftAttachmentMotorForDegrees(-1000, wait=False)
