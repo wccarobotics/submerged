@@ -47,7 +47,7 @@ def Run(br: BaseRobot):
 
     # get to sample
     br.driveForDistance(mm(-1.5))
-    turn_angle = ((initial_heading - br.hub.imu.heading())) + 88
+    turn_angle = ((initial_heading - br.hub.imu.heading())) + 83
     br.curve(0, turn_angle, 40)
     br.driveForDistance(mm(3), 50, then=Stop.NONE)
     br.moveLeftAttachmentMotorForDegrees(-1000, wait=False)
