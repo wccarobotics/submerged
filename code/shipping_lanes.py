@@ -21,7 +21,7 @@ def Run(br: BaseRobot):
     # get to boat
     br.driveForDistance(mm(15), 50)
     br.curve(mm(2.5), -45, 40)
-    br.driveForDistance(mm(.7), 10)
+    br.driveForDistance(mm(0.7), 10)
 
     # rotate boat
     br.moveRightAttachmentMotorForDegrees(500, 30)

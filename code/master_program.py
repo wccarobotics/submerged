@@ -2,7 +2,7 @@ from base_robot import *
 from pybricks.tools import Matrix
 
 # Import missions
-import reef_and_shark2, coral_tree, raise_mast, squid, squid_delivery, r06_change_shipping_lanes, send_over_submersible, crab_cross, Battery, celebrate, clean_wheels, images, demo_straight, demo_turn, clean_and_reef
+import reef_and_shark2, coral_tree, raise_mast, squid, squid_delivery, shipping_lanes, sonar, send_over_submersible, crab_cross, Battery, celebrate, clean_wheels, images, demo_straight, demo_turn, clean_and_reef
 
 
 br = BaseRobot()
@@ -15,8 +15,9 @@ runs = {
     2: reef_and_shark2.Run,
     3: raise_mast.Run,
     4: crab_cross.Run,
-    5: r06_change_shipping_lanes.Run,
-    6: squid_delivery.Run,
+    5: shipping_lanes.Run,
+    6: sonar.Run,
+    7: squid_delivery.Run,
 }
 
 utilities = {

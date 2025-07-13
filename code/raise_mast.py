@@ -17,11 +17,11 @@ def Run(br: BaseRobot):
     initial_heading = br.hub.imu.heading()
 
     # get aligned with mission model
-    br.driveForDistance(mm(15), speedPct=35, then=Stop.NONE)
+    br.driveForDistance(mm(15.25), speedPct=35, then=Stop.NONE)
     br.curve(mm(6), 20, speedPct=45, then=Stop.NONE)
     br.driveForDistance(mm(7), 30, then=Stop.NONE)
     turn_angle = initial_heading - br.hub.imu.heading() + 90
-    br.curve(mm(0),turn_angle, 40)
+    br.curve(mm(0), turn_angle, 40)
 
     # raise mast and grab chest
     br.driveForDistance(mm(3), 50, then=Stop.NONE)
